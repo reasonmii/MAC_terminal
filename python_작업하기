@@ -48,6 +48,13 @@ vi ~/.vimrc
 :wq
 저장하고 나가겠다
 
+--- 
+https://minimin2.tistory.com/145
+color 적용
 
+$ mkdir ~/.vim/colors
+$ mv onehalfdark.vim ~/.vim/colors/
+
+$ vi ~/.vimrc
 
 
