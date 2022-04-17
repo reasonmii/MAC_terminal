@@ -1,0 +1,15 @@
+open .
+
+ls
+pwd
+
+vi yuna.py
+i : insert mode
+python script 작성
+다 했으면 esc
+:w  저장
+:q 나가기
+
+ls 파일 잘 생성되었는지 확인
+파일 내용 확인 python3 yuna.py
+
