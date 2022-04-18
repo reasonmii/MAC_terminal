@@ -1,0 +1,28 @@
+- 기본 가상환경 이름 : base
+- 새로운 가상환경 만들기
+  - 가상환경 이름 : yuna
+
+- 'yuna' 가상환경으로 들어가기
+  - conda activate yuna
+- 가상환경에서 나오기
+  - conda deactivate
+
+- python 실행하기
+  - python3
+
+- jupyter notebook 사용 중 terminal에서 jupyter notebook 종료하기
+  - ctrl + C : shutdown
+
+- nohub
+
+
+cat yuna.log | grep book
+
+yuna.log 파일에서 'book'이 들어간 문장 전부 출력
+
+
+log 내용 저장 = 'yuna.log' 파일에
+
+nohup jupyter notebook > yuna.log & 
+nohub.out
+
