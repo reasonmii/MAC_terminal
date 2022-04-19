@@ -1,5 +1,6 @@
 ### terminal package 설치
 - sudo pip3 install <package>
+- sudo pip3 install <package> --upgrade
 
 ### python 실행하기
 - python3
