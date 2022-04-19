@@ -4,15 +4,18 @@ if has("syntax")
 endif
 
 set ts=4
-set autoindent
+set autoindent   "자동 인덴트
 
-colo onehalfdark
+colo onehalfdark "color 테마 : onehalfdark 적용
+
+" Syntax Highlighting은 기본제공이라 안 예쁠 수 있으니,
+" 아래와 같이 추가 편집
 
 set laststatus=2
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
-set hlsearch "검색어 하이라이팅
-set nu "줄번호
+set hlsearch   "검색어 하이라이팅
+set nu         "줄번호 표시
 set autoindent "자동 들여쓰기
 set scrolloff=2
 set wildmode=longest,list
