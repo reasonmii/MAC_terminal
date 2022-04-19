@@ -1,3 +1,6 @@
+### terminal package 설치
+- sudo pip3 install <package>
+
 ### python 실행하기
 - python3
 
@@ -23,3 +26,4 @@
   - jupyter notebook
 - jupyter notebook 사용 중 terminal에서 jupyter notebook 종료하기
   - ctrl + C : shutdown
+
