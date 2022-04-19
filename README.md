@@ -4,8 +4,14 @@
   - vi ~/.vimrc
 ---
 ### Colorscheme
-- Best VIM color-schemes
-  - https://www.slant.co/topics/480/~best-vim-color-schemes
+1. vim 테마 다운받기
+  - Best VIM color-schemes : https://www.slant.co/topics/480/~best-vim-color-schemes
+2. vim 테마 적용하기: ~/.vim/colors경로에 다운받은 테마 파일 이동
+  - mkdir ~/.vim/colors
+  - mv onehalfdark.vim ~/.vim/colors/
+3. ~/.vimrc 파일 수정
+  - vi ~/.vimrc
+  - vimrc 파일 참고 : ctrl + v
 ---
 ### Vim Cheat Sheet
 - https://vim.rtorr.com/
