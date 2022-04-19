@@ -6,3 +6,6 @@
 ### Colorscheme
 - Best VIM color-schemes
   - https://www.slant.co/topics/480/~best-vim-color-schemes
+---
+### Vim Cheat Sheet
+- https://vim.rtorr.com/
