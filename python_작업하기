@@ -47,14 +47,3 @@ vi ~/.vimrc
 파일에 입력 : set tabstop=4
 :wq
 저장하고 나가겠다
-
---- 
-https://minimin2.tistory.com/145
-color 적용
-
-$ mkdir ~/.vim/colors
-$ mv onehalfdark.vim ~/.vim/colors/
-
-$ vi ~/.vimrc
-
-
