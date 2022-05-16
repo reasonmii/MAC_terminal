@@ -1,6 +1,8 @@
-### terminal package 설치
-- sudo pip3 install <package>
-- sudo pip3 install <package> --upgrade
+terminal package 설치
+```vim
+sudo pip3 install <package>
+sudo pip3 install <package> --upgrade
+```
 
 python 실행하기
 ```vim
@@ -8,16 +10,17 @@ python3
 ```
 
 python 파일 생성해서 작업하기
-```
-1) vi fileNmae.py
-2) i + python script 작성
-4) esc + :wq
-5) 파일확인 : ls
-8) 파일 내용 확인 : python3 fileName.py
+```vim
+vi fileNmae.py
+i                    # python script 입력
+esc + :wq            # 저장+종료
+ls                   # 파일확인
+python3 fileName.py  # 파일 내용 확인
 ```
   
-### jupyter 작업하기
-- jupyter 실행 : jupyter notebook
-- jupyter notebook 사용 중 terminal에서 jupyter notebook 종료하기
-  - ctrl + C : shutdown
-
+jupyter 작업하기
+```vim
+jupyter notebook     # jupyter 실행
+ctrl + C : shutdown
+# jupyter notebook 사용 중 terminal에서 jupyter notebook 종료하기
+```
