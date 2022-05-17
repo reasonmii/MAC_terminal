@@ -3,7 +3,7 @@
 - .vimrc 파일 만들기
   - vi ~/.vimrc
 ---
-### Colorscheme
+### color-scheme
 - vim 테마 다운받기
   - Best VIM color-schemes : https://www.slant.co/topics/480/~best-vim-color-schemes
 - vim 테마 적용하기: ~/.vim/colors경로에 다운받은 테마 파일 이동
@@ -15,3 +15,15 @@
 ---
 ### Vim Cheat Sheet
 - https://vim.rtorr.com/
+---
+### code
+- ls : check files in the directory
+
+---
+### file code
+- i - insert
+- :wq or :x or ZZ - write (save) and quit
+- :q - quit (fails if there are unsaved changes)
+- :q! or ZQ - quit and throw away unsaved changes
+- :wqa - write (save) and quit on all tabs
+
