@@ -1,8 +1,8 @@
-VIM code
+> VIM code
 - [vim Cheat Sheet](https://vim.rtorr.com/)
 - ls : check files in the directory
 
-VIM file code
+> VIM file code
 - i - insert
 - :wq or :x or ZZ - write (save) and quit
 - :q - quit (fails if there are unsaved changes)
