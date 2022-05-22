@@ -61,7 +61,7 @@ vi ~/.zshrc 파일에 원하는 플러그인을 스페이스로 구분하면서 
 폰트 다운 및 설치
 [Source Code Pro]<https://github.com/powerline/fonts/blob/master/SourceCodePro/Source%20Code%20Pro%20for%20Powerline.otf>
 
-```shell
+```console
 git clone https://github.com/powerline/fonts.git --depth=1
 # clone
 git clone https://github.com/powerline/fonts.git --depth=1
