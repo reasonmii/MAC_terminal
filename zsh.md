@@ -71,6 +71,66 @@ cd fonts
 cd ..
 rm -rf fonts
 
+9) 상단 - 터미널 - 환경설정 - 프로파일 - 텍스트
+서체변경 : 'Source Code Pro for Powerline'
+
+10) new line
+코드가 길어지면 계속 옆에 쓰지 않고 자동으로 줄 바꿔서 다음 줄에 이어지게 써지게 하기
+vi ~/.oh-my-zsh/themes/agnoster.zsh-theme
+쭉 script 보면서 build_prompt() {} 구문 찾기
+prompt_newline을 prompt_hg와 prompt_end 사이에 넣기
+
+그리고 코드 제일 아래에 내려가서
+prompt_newline()에 대한 기능을 정의하는 코드 입력
+
+prompt_newline() {
+    if [[ -n $CURRENT_BG ]]; then
+        echo -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{%k%F{blue}%}$SEGMENT_SEPARATOR"
+    else
+        echo -n "%{%k%}"
+    fi
+
+    echo -n "%{%f%}"
+    CURRENT_BG=''
+}
+
+11) shell에 이모티콘 적용하기
+vi ~/.zshrc
+
+prompt_context() { 
+  # Custom (Random emoji) 
+  emojis=("⚡️" "🔥" "🇰" "👑" "😎" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🔑" "🚦" "🌙")
+  RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1)) 
+  prompt_segment black default "{하고싶은이름} ${emojis[$RAND_EMOJI_N]} " 
+}
+
+-> 터미널을 킬 때마다 랜덤으로 위의 작성된 이모티콘 적용됨
+코드에서 ${emojis[$RAND_EMOJI_N]} 이 부분을 원하는 이모티콘으로 채우면 그 이모티콘만 나옴
+
+
+---
+item2 설치하기
+https://iterm2.com/ -> 다운로드
+iTerm2 is a replacement for Terminal and the successor to iTerm
+
+9) 상단 iTerm2 메뉴바에서 클릭 - Preferences - Profiles
+9-1) Text - Font
+monaco 로 되어 있는데 'Source Code Pro for Powerline'으로 변경
+9-2) Colors 원하는 색으로 설정
+
+10) 터미널에서 사용자 이름 삭제하기
+vi ~/.zshrc
+아래 콛 추가
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+
+11) iTerm color theme
+https://iterm2colorschemes.com/
+난 이 중 'Framer' 이 테마가 마음에 듬
+
 
 
 
