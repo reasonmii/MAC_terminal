@@ -46,7 +46,7 @@ vi ~/.zshrc
 robbyrussell : default 테마
 만약 ZSH_THEME = "random" 으로 하면 터미널을 열 때마다 여러 다양한 테마 체험 가능
 agnoster도 많이 씀
-모든 theme 미리 보기 : https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+[모든 theme 미리보기](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
 
 7) plugin
 vi ~/.oh-my-zsh/plugins
