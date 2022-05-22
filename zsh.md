@@ -61,6 +61,7 @@ vi ~/.zshrc 파일에 원하는 플러그인을 스페이스로 구분하면서 
 폰트 다운 및 설치
 [Source Code Pro]<https://github.com/powerline/fonts/blob/master/SourceCodePro/Source%20Code%20Pro%20for%20Powerline.otf>
 
+```console
 git clone https://github.com/powerline/fonts.git --depth=1
 # clone
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -70,6 +71,7 @@ cd fonts
 # clean-up a bit
 cd ..
 rm -rf fonts
+```
 
 9) 상단 - 터미널 - 환경설정 - 프로파일 - 텍스트
 서체변경 : 'Source Code Pro for Powerline'
