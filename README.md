@@ -6,7 +6,8 @@
 - tab : 폴더/파일명 자동 완성
 - rm <fileName> : 파일삭제
 - rmdir <folderPath> : 폴더삭제
-- rm -r <fileName> : 해당 경로 폴더 및 파일 모두 삭제
+- rm -r <folderPath> : 폴더 및 폴더 내 파일 모두 삭제
+- rm -rf <folderPath> : 폴더 및 폴더 내 파일 모두 삭제
 - Error : permission denied 
   - solution : chmod 755 명령어
   - read, write 권한을 주는 거
