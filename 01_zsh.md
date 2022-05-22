@@ -21,21 +21,14 @@ Z shell(Zsh)은 Bash와 같이 유닉스 쉘의 일종으로 1990년 처음 개�
 2 간단한 설정을 통해 문법 오류를 정정해줍니다. (e.g. gut → git)
 3 다양한 테마를 지원합니다.
 
-```console
-# 1) Homebrew 설치 후 zsh 설치
-brew install zsh
-
-# 2) zsh 설치 확인
-zsh --version
-
-# 3) bash로 되어 있는 기본 쉘을 zsh로 변경
-which zsh           # 쉘의 위치 확인 : /bin/zsh
-chsh -s /bin/zsh    # 기본 쉘 변경
-chsh -s 'which zsh' # 쉘의 위치 확인 + 기본 쉘 변경
-
-# 4) 터미널 종료 후 재시작 -> 기본 쉘이 zsh인 것 확인
-echo $SHELL         # 결과 : /bin/zsh
-```
+1) Homebrew 설치 후 zsh 설치 `brew install zsh`
+2) zsh 설치 확인 `zsh --version`
+3) bash로 되어 있는 기본 쉘을 zsh로 변경
+`which zsh`           # 쉘의 위치 확인 : /bin/zsh
+`chsh -s /bin/zsh`    # 기본 쉘 변경
+`chsh -s 'which zsh'` # 쉘의 위치 확인 + 기본 쉘 변경
+4) 터미널 종료 후 재시작 -> 기본 쉘이 zsh인 것 확인
+`echo $SHELL`         # 결과 : /bin/zsh
 
 <b>Oh-My-Zsh 설치</b>
 - ZSH에서 가장 널리 사용되는 플러그인 프레임 워크
