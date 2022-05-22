@@ -107,6 +107,11 @@ prompt_context() {
 -> 터미널을 킬 때마다 랜덤으로 위의 작성된 이모티콘 적용됨
 코드에서 ${emojis[$RAND_EMOJI_N]} 이 부분을 원하는 이모티콘으로 채우면 그 이모티콘만 나옴
 
+12) Syntax Highlight 적용 
+brew install zsh-syntax-highlighting
+# ~/.zshrc에 들어가서 아래의 코드를 입력해줍니다.
+vi ~/.zshrc
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ---
 item2 설치하기
