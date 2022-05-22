@@ -85,6 +85,7 @@ prompt_newline을 prompt_hg와 prompt_end 사이에 넣기
 그리고 코드 제일 아래에 내려가서
 prompt_newline()에 대한 기능을 정의하는 코드 입력
 
+```console
 prompt_newline() {
     if [[ -n $CURRENT_BG ]]; then
         echo -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{%k%F{blue}%}$SEGMENT_SEPARATOR"
@@ -95,16 +96,19 @@ prompt_newline() {
     echo -n "%{%f%}"
     CURRENT_BG=''
 }
+```
 
 11) shell에 이모티콘 적용하기
 vi ~/.zshrc
 
+```console
 prompt_context() { 
   # Custom (Random emoji) 
   emojis=("⚡️" "🔥" "🇰" "👑" "😎" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🔑" "🚦" "🌙")
   RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1)) 
   prompt_segment black default "{하고싶은이름} ${emojis[$RAND_EMOJI_N]} " 
 }
+```
 
 -> 터미널을 킬 때마다 랜덤으로 위의 작성된 이모티콘 적용됨
 코드에서 ${emojis[$RAND_EMOJI_N]} 이 부분을 원하는 이모티콘으로 채우면 그 이모티콘만 나옴
@@ -128,11 +132,13 @@ monaco 로 되어 있는데 'Source Code Pro for Powerline'으로 변경
 2) 터미널에서 사용자 이름 삭제하기
 vi ~/.zshrc
 아래 콛 추가
+```console
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
   fi
 }
+```
 
 3) iTerm color theme
 https://iterm2colorschemes.com/
