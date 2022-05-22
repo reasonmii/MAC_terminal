@@ -46,13 +46,30 @@ vi ~/.zshrc
 robbyrussell : default 테마
 만약 ZSH_THEME = "random" 으로 하면 터미널을 열 때마다 여러 다양한 테마 체험 가능
 agnoster도 많이 씀
-a~z theme 미리 보기 : https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+모든 theme 미리 보기 : https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 7) plugin
 vi ~/.oh-my-zsh/plugins
 200개 가까운 plugin 있음
 많이 사용되는 플러그인의 alias를 미리 정의해 놓은 것 (별명)
 ex) alias ga = "git add" 로 정의하면 ga만 입력해도 git add 입력한 것과 같이 됨
+vi ~/.zshrc 파일에 원하는 플러그인을 스페이스로 구분하면서 하나씩 나열하면서 입력
+
+8) 터미널 껐다가 다시 열어보면 파란 물음표 발생
+-> 폰트 깨져서 그럼 -> 폰트 설치 필요
+
+폰트 다운 및 설치
+[Source Code Pro]<https://github.com/powerline/fonts/blob/master/SourceCodePro/Source%20Code%20Pro%20for%20Powerline.otf>
+
+git clone https://github.com/powerline/fonts.git --depth=1
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
 
 
 
