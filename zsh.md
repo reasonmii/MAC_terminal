@@ -113,12 +113,12 @@ item2 설치하기
 https://iterm2.com/ -> 다운로드
 iTerm2 is a replacement for Terminal and the successor to iTerm
 
-9) 상단 iTerm2 메뉴바에서 클릭 - Preferences - Profiles
-9-1) Text - Font
+1) 상단 iTerm2 메뉴바에서 클릭 - Preferences - Profiles
+1-1) Text - Font
 monaco 로 되어 있는데 'Source Code Pro for Powerline'으로 변경
-9-2) Colors 원하는 색으로 설정
+1-2) Colors 원하는 색으로 설정
 
-10) 터미널에서 사용자 이름 삭제하기
+2) 터미널에서 사용자 이름 삭제하기
 vi ~/.zshrc
 아래 콛 추가
 prompt_context() {
@@ -127,11 +127,29 @@ prompt_context() {
   fi
 }
 
-11) iTerm color theme
+3) iTerm color theme
 https://iterm2colorschemes.com/
 난 이 중 'Framer' 이 테마가 마음에 듬
 
+brew install curl
+cf) 자꾸 에러 뜨는 경우
+- 에러 : zsh: command not found: brew
+- zshrc 파일에 이 코드 추가 : export PATH=/opt/homebrew/bin:$PATH
+- iTerm 껐다 켜기
 
+# util이라는 이름의 directory를 생성하고 이동
+mkdir util && cd util
+
+# Framer color theme를 download
+# 만약 다른 color 테마를 다운로드 할 경우 curl -LO 이후에 해당 URL을 넣으면 됨
+curl -LO
+
+ls
+결과 : Framer.itermcolors
+
+iterm preferences - profiles - colors (단축키 cmd ,)
+우측 하단 color presets 선택
+import - 방금 다운 받은 Framer 테마 설정
 
 
 
