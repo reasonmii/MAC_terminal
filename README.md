@@ -4,10 +4,11 @@
 - ls : check files in the directory
 - open . : 현재 경로 폴더 열기
 - tab : 폴더/파일명 자동 완성
-- rm <fileName> : 파일삭제
-- rmdir <folderPath> : 폴더삭제
-- rm -r <folderPath> : 폴더 및 폴더 내 파일 모두 삭제
-- rm -rf <folderPath> : 폴더 및 폴더 내 파일 모두 삭제
+- rm <fileName> : delete a file
+- rmdir <folderPath> : delete a directory
+- rm -r <folderPath> : recursively delete a directory and all its contents
+- rm -f <folderPath> : forcibly delete files without asking
+- rm -rf <folderPath>
 - Error : permission denied 
   - solution : chmod 755 명령어
   - read, write 권한을 주는 거
