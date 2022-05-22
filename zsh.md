@@ -41,6 +41,20 @@ iTerm이던 터미널 앱이든 리눅스든 상관없이 같은 환경으로 �
 wget 으로 설치
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
+6) 설치된 파일 확인
+vi ~/.zshrc
+robbyrussell : default 테마
+만약 ZSH_THEME = "random" 으로 하면 터미널을 열 때마다 여러 다양한 테마 체험 가능
+agnoster도 많이 씀
+a~z theme 미리 보기 : https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
+7) plugin
+vi ~/.oh-my-zsh/plugins
+200개 가까운 plugin 있음
+많이 사용되는 플러그인의 alias를 미리 정의해 놓은 것 (별명)
+ex) alias ga = "git add" 로 정의하면 ga만 입력해도 git add 입력한 것과 같이 됨
+
+
 
 
 
