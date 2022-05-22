@@ -6,9 +6,9 @@
 - tab : 폴더/파일명 자동 완성
 - rm <fileName> : delete a file
 - rmdir <folderPath> : delete a directory
-- rm -r <folderPath> : recursively delete a directory and all its contents
-- rm -f <folderPath> : forcibly delete files without asking
 - rm -rf <folderPath>
+  - rm -r <folderPath> : recursively delete a directory and all its contents
+  - rm -f <folderPath> : forcibly delete files without asking
 - Error : permission denied 
   - solution : chmod 755 명령어
   - read, write 권한을 주는 거
