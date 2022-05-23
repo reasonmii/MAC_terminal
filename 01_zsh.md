@@ -35,9 +35,10 @@
 - wget 으로 설치 : `curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh`
 - 설치된 파일 확인 : `vi ~/.zshrc`
   - ZSH_THEME = "robbyrussell" (default)
-    - "agnoster" : 가장 많이 씀
+    - "agnoster" : 가장 많이 씀 (git 사용자에게 편리)
     - "random" : terminal 열 때마다 다른 테마
     - [모든 theme 미리보기](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
+- 200여개 plugin 확인 : `vi ~/.oh-my-zsh/plugins`
 
 <b>폰트 설치</b>
 - terminal 껐다가 다시 열어보면 파란 물음표 발생 -> 폰트 깨져서 그럼 -> 폰트 설치 필요
@@ -51,11 +52,14 @@
 
 ### vi ~/.zshrc 수정
 
-<b>plugin</b>
-- `vi ~/.oh-my-zsh/plugins` : 200여개 plugin
-- 많이 사용하는 플러그인의 alias 정의
-  - ex) alias ga = "git add" → ga 입력 시 git add로 인지
-- `vi ~/.zshrc` 파일에 원하는 plugin을 space로 구분하여 하나씩 입력
+<b>custom alias 추가</b>
+- 많이 사용하는데 코드가 긴 경우 alias 정의
+
+```console
+vi ~/.zshrc
+alias ga = "git add"        # ga 입력 시 git add로 인지
+alias kp="sudo lsof -t -i tcp:8000 | xargs kill -9"
+```
 
 <b>Terminal 사용자 이름 삭제</b>
 - `prompt_context(){}` 로 비워두면 prompt에 표시되는 user name 모두 숨김처리
