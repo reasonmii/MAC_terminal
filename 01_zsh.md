@@ -34,10 +34,10 @@
 <b>Oh-My-Zsh 설치</b>
 1) wget 으로 설치 : `curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh`
 2) 설치된 파일 확인 : `vi ~/.zshrc`
-  - ZSH_THEME = "robbyrussell" (default)
-    - "agnoster" : 가장 많이 씀 (git 사용자에게 편리)
-    - "random" : terminal 열 때마다 다른 테마
-    - [모든 theme 미리보기](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
+   - ZSH_THEME = "robbyrussell" (default)
+     - "agnoster" : 가장 많이 씀 (git 사용자에게 편리)
+     - "random" : terminal 열 때마다 다른 테마
+     - [모든 theme 미리보기](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
 3) 200여개 plugin 확인 : `vi ~/.oh-my-zsh/plugins`
 
 <b>폰트 설치</b>
