@@ -1,3 +1,5 @@
+[Homebrew 설치](https://brew.sh/index_ko)
+
 ### ZSH
 
 - mac terminal 기본 shell : bash (검정바탕 흰글씨) -> 너무 무서움
