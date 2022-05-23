@@ -94,16 +94,22 @@ prompt_newline() {
 ```
 
 <b>이모티콘 적용</b>
-- `vi ~/.zshrc`
-- terminal 실행 시 랜덤 이모티콘 적용하는 코드 작성
-- `${emojis[$RAND_EMOJI_N]}` 부분을 원하는 이모티콘으로 채우면 그 이모티콘만 나옴
 
 ```console
+vi ~/.zshrc
+
+# 랜덤 이모티콘 적용
 prompt_context() { 
   # Custom (Random emoji) 
   emojis=("🌙" "📌" "🦄" "👑" "🌈")
   RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1)) 
   prompt_segment black default "{하고싶은이름} ${emojis[$RAND_EMOJI_N]} " 
+}
+
+# 한 개 이모티콘 적용
+prompt_context() { 
+  emojis=("🎵")
+  prompt_segment black default "${emojis}"
 }
 ```
 
