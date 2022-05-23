@@ -53,7 +53,7 @@ curl -C - -O http://mirror.kakao.com/ubuntu-releases/18.10/ubuntu-18.10-desktop-
 - JSON 데이터를 POST 하는 경우 header 별도 필요
   - `curl -H 'Content-Type: application/json' -d '{"foo": "bar"}' https://foo.bar`
 
-<b>파일 upload<b>
+<b>파일 upload</b>
 - `-F` or `--form` 옵션 사용
   - `curl -F 'file=@/foo/bar/path' -F 'key=value' https://foo.bar`
 - 요청은 POST로 multipart/form-data 형식으로 날아감
