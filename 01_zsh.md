@@ -69,7 +69,7 @@ prompt_context() {
 <b>new line</b>
 - 코드가 길어지면 자동 줄 바꾸기 기능
 - `vi ~/.oh-my-zsh/themes/agnoster.zsh-theme`
-- build_prompt() {} 구문 찾아 `prompt_newline`을 `prompt_hg`와 `prompt_end` 사이에 추가
+- `build_prompt() {}` 구문 찾아 `prompt_newline`을 `prompt_hg`와 `prompt_end` 사이에 추가
 - 코드 제일 아래에 내려가서 `prompt_newline()` 기능을 정의하는 코드 입력
 
 ```console
