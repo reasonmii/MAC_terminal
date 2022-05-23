@@ -2,25 +2,21 @@
 - 상호작용 로그인 shell
 - shell script를 위한 강력한 명령 줄 interpreter로 사용할 수 있는 unix shell
 - bash, ksh, tcsh의 일부 기능을 포함하여 수많은 개선 사항이 갖추어진 확장형 Bourne shell
+- 주요 특징
+  - 실행 중인 모든 shell은 명령어의 history를 shell 끼리 공유
+  - 간단한 설정을 통해 문법 오류 정정 (e.g. gut → git)
+  - 다양한 테마를 지원
 
-맥에서 터미널 실행시키면 원래 bash라는 shell 실행
-텍스트로 되어 있고 까만 화면에 하얀색 -> 너무 무서움
-그래서 많은 사용자가 shell 환경설정을 변경하여 색상, 폰트 설정
-github에서 이러한 dotfiles만 모아서 추천해줌
-그러나 이건 초보자가 보기엔 어려움
+<b>Oh-My-Zsh</b>
+- 사용 이유
+  - 맥에서 터미널 실행시키면 원래 bash shell 실행됨 (검정바탕 흰글씨) -> 너무 무서움
+  - 많은 사용자가 shell 환경설정을 변경하여 색상, 폰트 설정
+    - github에서 이러한 dotfiles만 모아서 추천해줌 (그러나 이건 초보자가 보기엔 어려움)
+- Oh-My-Zsh은 bash보다 최근에 나온 shell인 zsh의 환경설정을 다루는 framework
+  - 커뮤니티 활동이 매우 활발하여 120여 개의 테마와 120여 개의 플러그인이 준비되어 있음
+- 먼저 zsh, curl, wget, git 등이 설치되어 있어야 함
 
-Oh-My-Zsh은 bash보다 최근에 나온 shell인 zsh의 환경설정을 다루는 프레임워크
-커뮤니티 활동이 매우 활발하여 120여 개의 테마와 120여 개의 플러그인이 준비되어 있음
-먼저 zsh이 설치되어 있어야 함
-curl이나 wget, git이 설치되어 있어야 함
-
-Zsh란?
-Z shell(Zsh)은 Bash와 같이 유닉스 쉘의 일종으로 1990년 처음 개발되었습니다.
-주요 특징
-1 실행 중인 모든 Shell은 명령어의 history를 쉘 끼리 공유합니다.
-2 간단한 설정을 통해 문법 오류를 정정해줍니다. (e.g. gut → git)
-3 다양한 테마를 지원합니다.
-
+<b>Oh-My-Zsh 설치 방법</b>
 1) Homebrew 설치 후 zsh 설치 `brew install zsh`
 2) zsh 설치 확인 `zsh --version`
 3) bash로 되어 있는 기본 쉘을 zsh로 변경
