@@ -58,6 +58,7 @@
 - `vi ~/.zshrc` 파일에 원하는 plugin을 space로 구분하여 하나씩 입력
 
 <b>Terminal 사용자 이름 삭제</b>
+- `prompt_context(){}` 로 비워두면 prompt에 표시되는 user name 모두 숨김처리
 
 ```console
 vi ~/.zshrc
