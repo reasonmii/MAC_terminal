@@ -52,11 +52,12 @@
 
 ### vi ~/.zshrc 수정
 
+- zshrc 파일 수정 후 적용 : `source ~/.zshrc`
+
 <b>custom alias 추가</b>
 - 많이 사용하는데 코드가 긴 경우 alias 정의
 
 ```console
-vi ~/.zshrc
 alias ga = "git add"        # ga 입력 시 git add로 인지
 alias kp="sudo lsof -t -i tcp:8000 | xargs kill -9"
 ```
@@ -65,8 +66,6 @@ alias kp="sudo lsof -t -i tcp:8000 | xargs kill -9"
 - `prompt_context(){}` 로 비워두면 prompt에 표시되는 user name 모두 숨김처리
 
 ```console
-vi ~/.zshrc
-
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
@@ -96,8 +95,6 @@ prompt_newline() {
 <b>이모티콘 적용</b>
 
 ```console
-vi ~/.zshrc
-
 # 랜덤 이모티콘 적용
 prompt_context() { 
   # Custom (Random emoji) 
@@ -113,10 +110,50 @@ prompt_context() {
 }
 ```
 
+<b>git command line 한글 → 영어</b>
+- `export LANG=en_US`
+
+---
+
+### plugins 설치
+
+- plugins 설치 후 적용하기
+
+```console
+vi ~/.zshrc
+
+plugins=( 
+git
+autojump
+zsh-autosuggestions
+zsh-syntax-highlighting
+)
+ 
+source ~/.zshrc
+```
+
 <b>Syntax Highlight 적용</b>
 - `brew install zsh-syntax-highlighting`
 - `vi ~/.zshrc`
   - 입력 : `source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`
+
+<b>Autosuggestions</b>
+- `brew install zsh-autosuggestions`
+- `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+
+<b>Auto Jump</b>
+- cd 명령어를 여러 번 사용하는 대신 j 명령으로 한번에 directory 이동
+- 단, 한 번 이상 디렉토리를 방문한 경우에만 autojump가 가능
+
+```console
+brew install autojump
+git clone git://github.com/wting/autojump.git
+cd autojump
+./install.py
+vi ~/.zshrc
+
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+```
 
 ---
 
