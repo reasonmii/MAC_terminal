@@ -17,12 +17,12 @@
    - 쉘의 위치 확인 : /bin/zsh : `which zsh`
    - 기본 쉘 변경 : `chsh -s /bin/zsh`
    - 쉘의 위치 확인 + 기본 쉘 변경 : `chsh -s 'which zsh'`
-4) 터미널 종료 후 재시작 -> 기본 쉘이 zsh인 것 확인
+4) 터미널 종료 후 재시작 → 기본 쉘이 zsh인 것 확인
    - `echo $SHELL` 결과 : /bin/zsh
 
 <b>Oh-My-Zsh</b>
 - zsh의 환경설정을 다루는 plugin framework (zsh에서 가장 널리 사용됨)
-- mac terminal 기본 shell : bash (검정바탕 흰글씨) -> 너무 무서움
+- mac terminal 기본 shell : bash (검정바탕 흰글씨) → 너무 무서움
   - 많은 사용자가 shell 환경설정 변경 (colors, font)
     - github에서 이러한 dotfiles만 모아서 추천해줌 (but 초보자가 보기 어려움)
   - 그래서 Zsh : On-My-Zsh 사용
@@ -41,7 +41,7 @@
 3) 200여개 plugin 확인 : `vi ~/.oh-my-zsh/plugins`
 
 <b>폰트 설치</b>
-- terminal 껐다가 다시 열어보면 파란 물음표 발생 -> 폰트 깨져서 그럼 -> 폰트 설치 필요
+- terminal 껐다가 다시 열어보면 파란 물음표 발생 → 폰트 깨져서 그럼 → 폰트 설치 필요
 - 폰트 다운 및 설치 : [Source Code Pro](https://github.com/powerline/fonts/blob/master/SourceCodePro/Source%20Code%20Pro%20for%20Powerline.otf)
   - clone : `git clone https://github.com/powerline/fonts.git --depth=1`
   - install : `cd fonts` `./install.sh`
