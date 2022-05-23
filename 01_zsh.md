@@ -1,11 +1,9 @@
 ### ZSH
 
 - mac terminal 기본 shell : bash (검정바탕 흰글씨) -> 너무 무서움
-- 많은 사용자가 shell 환경설정을 변경하여 색상, 폰트 설정
-  - github에서 이러한 dotfiles만 모아서 추천해줌 (그러나 이건 초보자가 보기엔 어려움)
-- 그래서 Zsh : On-My-Zsh 사용
-
-<b>Z shell</b>
+  - 많은 사용자가 shell 환경설정을 변경하여 색상, 폰트 설정
+    - github에서 이러한 dotfiles만 모아서 추천해줌 (그러나 이건 초보자가 보기엔 어려움)
+  - 그래서 Zsh : On-My-Zsh 사용
 - 상호작용 로그인 shell
 - shell script를 위한 강력한 명령 줄 interpreter로 사용할 수 있는 unix shell
 - bash, ksh, tcsh의 일부 기능을 포함하여 수많은 개선 사항이 갖추어진 확장형 Bourne shell
