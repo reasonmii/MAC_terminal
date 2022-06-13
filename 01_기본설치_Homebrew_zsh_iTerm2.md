@@ -192,14 +192,3 @@ ls                      # 결과 : Framer.itermcolors
 - zshrc 파일에 코드 추가 : `port PATH=/opt/homebrew/bin:$PATH`
 - iTerm 껐다 켜기
 
----
-
-### git
-
-- Mac은 Apple 전용의 git 가지고 있음 (but, 옛날 버전) -> 새로 설치 필요
-- `brew install git` : git 설치하기
-- 'brew info git` : 설치된 git 정보 확인
-  - Dependencies 부분에서 pcre에 X 표시가 되어 있으면 추가 설치 필요 : `brew install pcre`
-- `git --version` : 버전 확인
-- `echo "export PATH=/usr/local/bin:$PATH" >> ~/.bash_profile`
-
