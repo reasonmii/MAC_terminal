@@ -189,6 +189,5 @@ ls                      # 결과 : Framer.itermcolors
 ### Error
 
 `zsh: command not found: brew`
-- zshrc 파일에 코드 추가 : `port PATH=/opt/homebrew/bin:$PATH`
-- iTerm 껐다 켜기
+- `vi ~/.zshrc` - 코드 추가 : `port PATH=/opt/homebrew/bin:$PATH` - `source ~/.zshrc`
 
