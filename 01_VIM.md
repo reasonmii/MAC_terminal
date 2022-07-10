@@ -16,6 +16,9 @@
 <b>VIM file code</b>
 - i - insert
 - dd : 해당 line 삭제
+- p : paste
+- v : multiple line select
+- :set paste enter - 전체 파일 tab 부분까지 정확히 복사 (붙여 넣을 곳에 cmd v)
 - :wq or :x or ZZ - write (save) and quit
 - :q - quit (fails if there are unsaved changes)
 - :q! or ZQ - quit and throw away unsaved changes
