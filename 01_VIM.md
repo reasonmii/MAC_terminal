@@ -116,7 +116,7 @@ mv onehalfdark.vim ~/.vim/colors/
 
 ---
 
-# Error
+### Error
 - vi, ls, mkdir, rm 등 아무 것도 인식 못 할 때
   - `vi ~/.zshrc` - 경로 추가 : `export PATH=%PATH:/bin:/usr/local/bin:/usr/bin` - `source ~/.zshrc`
 - permission denied 
