@@ -15,10 +15,10 @@
   - 파일 확인 : `ls`
 - github에 올리기
   - `git add .`
-  - `git commit -m "message"
+  - `git commit -m "message"`
   - online git upload : `git push origin master`
 - local repository와 online repository가 연결되어 있는지 확인 : `git remote -v`
-  - 결과값이 없는 경우 = 연결 안 된 것
-  - 연결방법 : `git remote add origin repository주소.git`
+  - 결과값이 없는 경우 : 연결 안 된 것
+  - 연결 방법 : `git remote add origin repository주소.git`
   - 연결 재확인 : `git remote -v`
  
