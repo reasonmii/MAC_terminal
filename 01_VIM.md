@@ -16,9 +16,6 @@
 - `rm -rf <folderPath>`
   - `rm -r <folderPath>` : recursively delete a directory and all its contents
   - `rm -f <folderPath>` : forcibly delete files without asking
-- Error : permission denied 
-  - solution : chmod 755 명령어
-  - read, write 권한을 주는 거
 
 <b>실행</b>
 - `vi <fileName>` : open a file
@@ -120,4 +117,6 @@ mv onehalfdark.vim ~/.vim/colors/
 # Error
 - vi, ls, mkdir, rm 등 아무 것도 인식 못 할 때
   - `vi ~/.zshrc` - 경로 추가 : `export PATH=%PATH:/bin:/usr/local/bin:/usr/bin` - `source ~/.zshrc`
+- permission denied 
+  - `chmod 755 명령어` : read, write 권한을 주는 거
 
