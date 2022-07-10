@@ -14,7 +14,7 @@
   - read, write 권한을 주는 거
 
 <b>VIM file code</b>
-- `i` - insert
+- `i` : insert
 - `dd` : 해당 line 삭제
 - `p` : paste
 - `v` : multiple line select
