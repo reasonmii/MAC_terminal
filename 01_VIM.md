@@ -108,11 +108,32 @@
 
 <b>color-scheme</b>
 - vim 테마 다운 : [Best VIM color-schemes](https://www.slant.co/topics/480/~best-vim-color-schemes)
-- vim 테마 적용 : `~/.vim/colors` 경로에 다운받은 테마 파일 이동
-```
-mkdir ~/.vim/colors
-mv onehalfdark.vim ~/.vim/colors/
-```
+- `mkdir ~/.vim/colors`
+- `mv onehalfdark.vim ~/.vim/colors/`
+  - `~/.vim/colors` 경로에 다운받은 테마 파일 이동하면 적용됨
+
+---
+
+### cat
+
+- `cat [opt] [fileName]`
+  - option
+    - `-A`, `-vET` : show all (탭, 줄바꿈 포함)
+    - `-e`, `-vE` : 줄바꿈을 포함한 nonprinting 문자 표시
+    - `-b` : 비어있지 않은 라인만 번호 출력
+    - `-n` : 모든 라인 앞에 번호 출력 (빈 라인 포함)
+    - `-E` : 라인 마지막에 $ 기호 출력 (빈 라인 포함)
+    - `-T` : 탭 문자를 ^I로 바꿔 출력
+    - `-s` : 두 번 이상 연속된 빈 라인 출력x
+    - `-v` : 탭과 줄바꿈을 제외한 nonprinting 문자를 ^, M- 사용하여 표시
+    - `-t` = `-vT` : 탭을 포함한 nonprinting 문자 표시
+  - no option : 파일 내용 그대로 출력
+- `cat [file1] [file2] [file3]` : print 'file1', 'file2', 'file3'
+- `cat [file1] [file2] > [newName]` : 'file1', 'file2'를 합친 내용 'newName'으로 저장
+- `cat [file1] [file2] >> [fileName]` : 'file1', 'file2'를 합친 내용 'fileName'(기존파일)에 이어쓰기
+- `cat [fileName] | grep "[word]" | wc -l`
+  - ex) `cat test.log | grep "acc" | wc -l`
+  - 'test.log' 파일에서 'acc'라는 단어가 있는 line 수를 세라
 
 ---
 
