@@ -3,6 +3,16 @@
 - linux에서 `vi`, `vim` 명령어 모두 vim editor 실행
 - 마우스로 클릭하지 않고 단축키로 모든 작업이 가능하니 작업 속도가 매우 빨라짐
 
+<b>VIMRC</b>
+- .vimrc 파일 수정을 통해 vim 에디터 설정 변경 가능 (별도 플러그인 설치X)
+- `vi ~/.vimrc` : .vimrc 파일 생성, open
+
+<b>color-scheme</b>
+- vim 테마 다운 : [Best VIM color-schemes](https://www.slant.co/topics/480/~best-vim-color-schemes)
+- `mkdir ~/.vim/colors`
+- `mv onehalfdark.vim ~/.vim/colors/`
+  - `~/.vim/colors` 경로에 다운받은 테마 파일 이동하면 적용됨
+
 ---
 
 ### VIM code
@@ -98,19 +108,6 @@
 - `:q!`, `ZQ` : quit and throw away unsaved changes
 - `:wqa` : save and quit on all tabs
 
----
-
-<b>VIMRC</b>
-- .vimrc 파일 수정을 통해 vim 에디터 설정 변경 가능 (별도 플러그인 설치X)
-- `vi ~/.vimrc` : .vimrc 파일 생성, open
-
----
-
-<b>color-scheme</b>
-- vim 테마 다운 : [Best VIM color-schemes](https://www.slant.co/topics/480/~best-vim-color-schemes)
-- `mkdir ~/.vim/colors`
-- `mv onehalfdark.vim ~/.vim/colors/`
-  - `~/.vim/colors` 경로에 다운받은 테마 파일 이동하면 적용됨
 
 ---
 
