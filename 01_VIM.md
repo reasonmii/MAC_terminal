@@ -111,7 +111,7 @@
 
 ---
 
-<b>cat</b>
+### cat
 - `cat [opt] [fileName]`
   - option
     - no option : 파일 내용 그대로 출력
@@ -144,7 +144,7 @@
     - `--help`
     - '--version'
 
-<b>tail</b>
+### tail
 - `tail [opt] [fileName]`
   - option
     - no option : 아래 10줄 출력
@@ -159,7 +159,7 @@
     - `--help`
     - '--version'
 
-<b>history</b>
+### history
 - 사용한 명령어들을 'RAM history list'에 임시 저장하고, 종료 시점에는 history file을 업데이트하며 모두 추가함
 - 기본 확인
   - `echo $HISTFILE` : 저장된 경로 및 파일명 (보통 '.bash_history')
