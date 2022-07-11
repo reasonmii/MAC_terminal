@@ -115,6 +115,7 @@
 
 - `cat [opt] [fileName]`
   - option
+    - no option : 파일 내용 그대로 출력
     - `-A`, `-vET` : show all (탭 `^I`, 줄바꿈 `$` 포함)
     - `-n` : 모든 라인 앞에 번호 출력 (빈 라인 포함)
     - `-b` : 비어있지 않은 라인만 번호 출력
@@ -123,7 +124,6 @@
     - `-s` : 연속된 빈 라인을 하나로 출력
     - `-v` : 탭`^I`과 줄바꿈`$`을 제외한 nonprinting 문자를 ^, M- 사용하여 출력
     - `-t`, `-vT` : nonprinting 문자 출력 (탭 `^I` 포함)
-  - no option : 파일 내용 그대로 출력
 - `cat > [fileName]` : 터미널 자체에 파일 내용 입력 - `[cmd] c` : 종료
 - `cat [file1] [file2] [file3]` : print 'file1', 'file2', 'file3'
 - `cat [file1] [file2] > [newName]` : 'file1', 'file2'를 합친 내용 'newName'으로 저장
@@ -133,6 +133,36 @@
   - 'test.log' 파일에서 'acc'라는 단어가 있는 line 수를 세라
 - `cat --help` : 도움말 표시
 - `cat --version` : 버전 표시
+
+---
+
+### Head & Tail
+
+<b>head</b>
+- `head [opt] [fileName]`
+  - option
+    - no option : 위 10줄 출력
+    - `-c [n]` : 처음 n bytes 출력
+    - `-n [n]` : 처음 n줄 출력
+    - `-q` (quiet) : header 출력X
+    - `-v` (verbose) : header 항상 출력
+    - `--help`
+    - '--version'
+
+<b>tail</b>
+- `tail [opt] [fileName]`
+  - option
+    - no option : 아래 10줄 출력
+    - `-c [n]` : 마지막 n bytes 출력
+    - `-n [n]` : 마지막 n줄 출력
+    - `-f`, `-F` (follow) : 추가되는 내용 append 하여 출력
+    - `--max-unchanged-stats=N`: N번 바뀌기 전 파일 open (default 5)
+    - `-q` (quiet) : header 출력X
+    - `--retry` : 접속 안 돼도 계속 다시 시도
+    - '-s', '--sleep-interval=N` : iterations 중 N초 sleep
+    - `-v` (verbose) : header 항상 출력
+    - `--help`
+    - '--version'
 
 ---
 
