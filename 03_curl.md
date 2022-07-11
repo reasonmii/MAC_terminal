@@ -40,7 +40,7 @@ curl -C - -O http://mirror.kakao.com/ubuntu-releases/18.10/ubuntu-18.10-desktop-
 
 - 사이트 응답 확인 : `curl https://google.com`
 - 요청 응답 상세 보기 : `curl -v https://google.com`
-  - `-v` (Verbose) : 상세 로그 표시
+  - `-v` (verbose) : 상세 로그 표시
     - 요청 header/request, 응답 header/body 등
     - header 확인해야 redirect page는 확인 가능
 - 외부 IP주소 알아내기 : `curl ipinfo.io`
