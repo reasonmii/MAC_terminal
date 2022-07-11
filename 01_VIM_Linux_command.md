@@ -212,6 +212,73 @@
   - ex) `wc -l train_*_json`
     - 파일명이 'train_' 으로 시작하고 '\_json' 으로 끝나는 파일의 전체 line 수를 세라
 
+### ps
+- shell에서 실행 중인 프로세스 리스트 출력
+- 개념
+  - USER : 프로세스 소유자
+  - PID : 프로세스 고유 ID
+  - PPID : 부모 프로세스의 PID
+  - RSS : 프로세스에 의해 사용되는 실제 메모리 용량(Kbyte)
+  - VSZ : 프로세스에 의해 사용되는 가상 메모리 용량(Kbyte)
+  - TIME : 총 CPU 사용 시간 (프로세스 실행 시간)
+  - TTY : 프로세스가 실행된 터미널 종류와 번호
+  - %CPU : 마지막 분 동안 프로세스가 사용한 CPU 시간의 퍼센트
+  - %MEM : 마지막 분 동안 프로세스가 사용한 Memory 양의 퍼센트
+  - START, STIME : 프로세스가 시작된 시간
+  - CMD : 실행 명령어
+  - STAT : 프로세스의 상태
+    - + : foreground 프로세스 그룹에 속해있음
+    - s : 세션 리더
+    - R : 실행 중 또는 실행 가능
+    - T : 일시 정지
+    - D : 인터럽트 할 수 없는 대기 상태 ex) 디스트 입출력 대기 중
+    - S : 인터럽트 가능한 대기 상태 (sleep)
+    - Z : 좀비 프로세스
+    - N : 우선순위 낮음
+    - < : 우선순위 높음
+    - L : 실시간 또는 사용자 정의 IO의 경우 메모리에 페이지 고정
+    - l : 멀티 쓰레드
+- `ps [opt]`
+  - option
+    - no option : 현재 셀/터미널에서 실행한 사용자 프로세스 정보 출력
+    - `a` : 모든 사용자
+    - `u` : 각 프로세스 사용자
+      - `-u [user]` : 특정 user의 프로세스 정보 출력
+    - `x` : daemon 프로세스까지 출력 (터미널이 끊겨도 구동되는 process)
+    - `f` : 프로세스 상속관계 트리구조 출력
+    - `ww` : 넓게 출력 (wide)
+    - `-e`, `-A` : 실행 중인 모든 프로세스 출력 (every, all)
+    - `-a` : 다른 USER 프로세스도 출력
+    - `-x` : 사용자가 로그아웃 한 이후에도 실행 중인 프로세스 출력
+    - `-f` : PPID를 포함한 프로세스에 대한 자세한 정보 출력 (full)
+    - `-l` : 긴 format 출력 (F, S, C, ADDR, WCHAN 포함)
+    - `-p [PID]` : 특정 PID 프로세스 출력
+    - `-m` : 메모리 정보 출력
+- `pstree` : 트리 형태로 출력
+  - `-p` : 프로세스명과 PID 함께 출력
+  - `-n` : PID 순서로 출력
+- 많이 사용되는 코드
+  - `ps -ef`, `ps -aux` : 특정 PID, PPID 확인하기 위함
+    - `ps -ef | grep "[str]"`
+  - `ps aux` : 실행 중인 모든 프로세스 출력
+    - `ps -aux | grep "[str]"`
+  - `ps auxf` : 실행 중인 모든 프로세스를 트리구조로 출력
+  - `pgrep -f test.sh` : 'test.sh'의 프로세스 ID 출력
+ 
+### kill
+- 실행 중인 프로세스 강제 종료 (응답이 없거나 불필요한 프로세스)
+- `kill [opt] [PID]`
+  - option
+    - `-1` : SIGHUP - refresh
+    - `-2` : SIGINT - interupt, `[cmd] c`
+    - `-3` : SIGQUIT - quit, `[cmd] z`
+    - `-9` : SIGKILL - kill 강제종료
+    - `-15` : SIGTERM - 기본값
+    - `-17` : SIGHCLD - 자식 프로세스 정리
+    - `-19` : SIGSTOP - stop, `[cmd] Z`
+  - `[PID]` 대신 `[%작업번호]` 써도 됨 ex) `%4`
+- `pkill [processName]` : 프로세스 이름을 지정하여 강제 종료
+
 ---
 
 ### Error
