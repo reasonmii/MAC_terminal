@@ -29,6 +29,7 @@
  
 <b>파일·폴더 삭제</b>
 - `rm <fileName>` : delete a file
+  - `rm log.*` : 'log.'으로 시작하는 모든 파일 지우기
 - `rmdir <folderPath>` : delete a directory
 - `rm -rf <folderPath>`
   - `rm -r <folderPath>` : recursively delete a directory and all its contents
