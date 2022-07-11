@@ -111,8 +111,7 @@
 
 ---
 
-### cat
-
+<b>cat</b>
 - `cat [opt] [fileName]`
   - option
     - no option : 파일 내용 그대로 출력
@@ -134,16 +133,12 @@
 - `cat --help` : 도움말 표시
 - `cat --version` : 버전 표시
 
----
-
-### Head & Tail
-
 <b>head</b>
 - `head [opt] [fileName]`
   - option
     - no option : 위 10줄 출력
-    - `-c [n]` : 처음 n bytes 출력
-    - `-n [n]` : 처음 n줄 출력
+    - `-c[n]` : 처음 n bytes 출력
+    - `-n[n]` : 처음 n줄 출력
     - `-q` (quiet) : header 출력X
     - `-v` (verbose) : header 항상 출력
     - `--help`
@@ -153,8 +148,8 @@
 - `tail [opt] [fileName]`
   - option
     - no option : 아래 10줄 출력
-    - `-c [n]` : 마지막 n bytes 출력
-    - `-n [n]` : 마지막 n줄 출력
+    - `-c[n]` : 마지막 n bytes 출력
+    - `-n[n]` : 마지막 n줄 출력
     - `-f`, `-F` (follow) : 추가되는 내용 append 하여 출력
     - `--max-unchanged-stats=N`: N번 바뀌기 전 파일 open (default 5)
     - `-q` (quiet) : header 출력X
@@ -163,6 +158,40 @@
     - `-v` (verbose) : header 항상 출력
     - `--help`
     - '--version'
+
+<b>history</b>
+- 사용한 명령어들을 'RAM history list'에 임시 저장하고, 종료 시점에는 history file을 업데이트하며 모두 추가함
+- 기본 확인
+  - `echo $HISTFILE` : 저장된 경로 및 파일명 (보통 '.bash_history')
+    - ex) `cat $HISTFILE | head -3` : history file에서 위에서 3번째 줄까지 보여줘라
+  - `echo $HISTFILESIZE` : history file 최대 크기
+  - `echo $HISTSIZE` : history에 저장 가능한 최대 명령어 개수
+- `export HISTSIZE=0` : history 사용하고 싶지 않을 때 (이력 남기기 싫을 때)
+- `history [opt]`
+  - option
+    - `-c` : RAM에 있는 history list 삭제
+      - '.bash_history' 파일이 삭제되는 것 아님 (로그아웃, 로그인해야 파일 내용도 완전히 삭제)
+    - `-n` : history list에만 있는 내용을 "출력하고" history 파일에 추가
+    - `-a` : history list에만 있는 내용을 (종료 안했어도) "지금" history 파일에 추가
+    - `-d offset` : history 파일에서 offset(줄번호) 위치의 명령어 삭제
+    - `-r` : history 파일을 읽고 history list에 내용 추가
+    - `-w [fileName]` : 현재 history를 새로운 파일로 저장
+      - fileName 안 쓰면 기본 history 파일에 overwrite
+    - `--help`
+- 이전 명령어 실행
+  - `!!` : 바로 직전에 실행한 재실행
+  - `!ps` : 특정 문자가 들어간 최근 명령어 재실행
+  - `![n]` : history 파일에서 n번째에 저장된 명령어 실행
+  - `![-n]` : history 파일에서 마지막에서 n번째 저장된 명렁어 실행
+  - `![str]`, `!?[str]` : 'str'로 시작하는 가장 최근에 실행한 명령어 실행
+  - `![str]:p` : 'str'로 시작하는 가장 최근에 실행한 명령어 출력 (실행X)
+    - `:p`는 `!?[str]`과는 같이 쓸 수 없음
+- `[cmd] r` : reverse-i-search 모드로 들어감
+  - 입력하는 글자에 부합하는 명령어 하나씩 보여줌
+  - ex) 'world' 입력 - 'world'가 들어간 명령어 모두 출력
+- `history | grep [str]` : history에서 'str'이 있는 부분 출력
+  - `history | grep ^[str]` : history에서 'str'로 시작하는 명령어만 출력
+- `cat [historyfile] | grep ^[str] | tail -n 1` : history 파일에서 str로 시작하는 가장 최근 명령어 출력
 
 ---
 
