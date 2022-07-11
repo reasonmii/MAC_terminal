@@ -58,12 +58,12 @@
 - `n%` : n퍼센트에 해당하는 위치로 이동
 - `[shift] ↑` : 한 페이지 앞으로 이동
 - `[shift] ↓` : 한 페이지 뒤로 이동
-- `[ctrl] i` : 한 화면 위로 이동
-- `[ctrl] b` : 한 화면 아래로 이동
-- `[ctrl] d` : 반 화면 위로 이동
-- `[ctrl] u` : 반 화면 아래로 이동
-- `[ctrl] e` : 한 줄 위로 이동
-- `[ctrl] y` : 한 줄 아래로 이동
+- `[cmd] i` : 한 화면 위로 이동
+- `[cmd] b` : 한 화면 아래로 이동
+- `[cmd] d` : 반 화면 위로 이동
+- `[cmd] u` : 반 화면 아래로 이동
+- `[cmd] e` : 한 줄 위로 이동
+- `[cmd] y` : 한 줄 아래로 이동
 
 <b>복사</b>
 - `d` : 현재 커서 위치의 단어 복사
@@ -71,7 +71,7 @@
 - `ny` : 현재 커서가 위치한 줄에서부터 아래로 n줄 복사
 - `nyy` : 현재 커서부터 n행만큼 복사
 - `:n1,n2y` : n1~n2번째 줄 복사
-- `:set paste` enter : 전체 파일 tab 부분까지 정확히 복사 (붙여 넣을 곳에 cmd v)
+- `:set paste` : 전체 파일 tab 부분까지 정확히 복사 (붙여 넣을 곳에 `cmd v`)
 
 <b>붙여넣기</b>
 - `p` : 커서 뒤에 붙여넣기
@@ -115,22 +115,24 @@
 
 - `cat [opt] [fileName]`
   - option
-    - `-A`, `-vET` : show all (탭, 줄바꿈 포함)
-    - `-e`, `-vE` : 줄바꿈을 포함한 nonprinting 문자 표시
-    - `-b` : 비어있지 않은 라인만 번호 출력
+    - `-A`, `-vET` : show all (탭 `^I`, 줄바꿈 `$` 포함)
     - `-n` : 모든 라인 앞에 번호 출력 (빈 라인 포함)
-    - `-E` : 라인 마지막에 $ 기호 출력 (빈 라인 포함)
-    - `-T` : 탭 문자를 ^I로 바꿔 출력
-    - `-s` : 두 번 이상 연속된 빈 라인 출력x
-    - `-v` : 탭과 줄바꿈을 제외한 nonprinting 문자를 ^, M- 사용하여 표시
-    - `-t` = `-vT` : 탭을 포함한 nonprinting 문자 표시
+    - `-b` : 비어있지 않은 라인만 번호 출력
+    - `-T` : 탭을 `^I`로 출력
+    - `-E` : 줄바꿈 `$` 출력 (빈 라인 포함)
+    - `-s` : 연속된 빈 라인을 하나로 출력
+    - `-v` : 탭`^I`과 줄바꿈`$`을 제외한 nonprinting 문자를 ^, M- 사용하여 출력
+    - `-t`, `-vT` : nonprinting 문자 출력 (탭 `^I` 포함)
   - no option : 파일 내용 그대로 출력
+- `cat > [fileName]` : 터미널 자체에 파일 내용 입력 - `[cmd] c` : 종료
 - `cat [file1] [file2] [file3]` : print 'file1', 'file2', 'file3'
 - `cat [file1] [file2] > [newName]` : 'file1', 'file2'를 합친 내용 'newName'으로 저장
 - `cat [file1] [file2] >> [fileName]` : 'file1', 'file2'를 합친 내용 'fileName'(기존파일)에 이어쓰기
 - `cat [fileName] | grep "[word]" | wc -l`
   - ex) `cat test.log | grep "acc" | wc -l`
   - 'test.log' 파일에서 'acc'라는 단어가 있는 line 수를 세라
+- `cat --help` : 도움말 표시
+- `cat --version` : 버전 표시
 
 ---
 
