@@ -1,6 +1,6 @@
 <b>VIM</b>
-- linux의 대표적인 editor
-- linux에서 `vi`, `vim` 명령어 모두 vim editor 실행
+- **Linux**의 대표적인 editor
+- Linux에서 `vi`, `vim` 명령어 모두 vim editor 실행
 - 마우스로 클릭하지 않고 단축키로 모든 작업이 가능하니 작업 속도가 매우 빨라짐
 
 <b>VIMRC</b>
@@ -21,6 +21,13 @@
 - `ls` : check files in the directory
 - `open .` : 현재 경로 폴더 열기
 - `tab` : 폴더/파일명 자동 완성
+
+<b>파일·폴더 생성</b>
+- `mkdir <folderPath>` : directory 생성
+- `mkdir -p <folderPath>` : 해당 경로에 상위 directory가 없는 경우 생성
+  - ex) `mkdir -p /home/test/apple` : 'test' directory가 없는 경우 'test', 'apple' 모두 생성
+ 
+<b>파일·폴더 삭제</b>
 - `rm <fileName>` : delete a file
 - `rmdir <folderPath>` : delete a directory
 - `rm -rf <folderPath>`
@@ -133,7 +140,7 @@
 - `cat --help` : 도움말 표시
 - `cat --version` : 버전 표시
 
-<b>head</b>
+### head
 - `head [opt] [fileName]`
   - option
     - no option : 위 10줄 출력
@@ -192,6 +199,18 @@
 - `history | grep [str]` : history에서 'str'이 있는 부분 출력
   - `history | grep ^[str]` : history에서 'str'로 시작하는 명령어만 출력
 - `cat [historyfile] | grep ^[str] | tail -n 1` : history 파일에서 str로 시작하는 가장 최근 명령어 출력
+
+### wc
+- word count : 특정 파일 내 Bytes, 단어, 행 개수 출력
+- `wc [opt] [fileName]`
+  - option
+    - no option : 행 수, 단어 수, 문자 수, 파일명 순으로 출력
+    - `-c` : byte 수 출력
+    - `-l` : 행(line) 수 출력
+    - `-L` : 가장 긴 행의 문자 수 출력
+    - `-w` : 단어 개수 출력
+  - ex) `wc -l train_*_json`
+    - 파일명이 'train_' 으로 시작하고 '\_json' 으로 끝나는 파일의 전체 line 수를 세라
 
 ---
 
