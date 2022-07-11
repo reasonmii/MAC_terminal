@@ -258,7 +258,7 @@
 - `pstree` : 트리 형태로 출력
   - `-p` : 프로세스명과 PID 함께 출력
   - `-n` : PID 순서로 출력
-- 많이 사용되는 코드
+- 많이 사용되는 코드 ★
   - `ps -ef`, `ps -aux` : 특정 PID, PPID 확인하기 위함
     - `ps -ef | grep "[str]"`
   - `ps aux` : 실행 중인 모든 프로세스 출력
@@ -273,12 +273,12 @@
     - `-1` : SIGHUP - refresh
     - `-2` : SIGINT - interupt, `[cmd] c`
     - `-3` : SIGQUIT - quit, `[cmd] z`
-    - `-9` : SIGKILL - kill 강제종료
+    - `-9` : SIGKILL - kill 강제종료 ★
     - `-15` : SIGTERM - 기본값
     - `-17` : SIGHCLD - 자식 프로세스 정리
     - `-19` : SIGSTOP - stop, `[cmd] Z`
   - `[PID]` 대신 `[%작업번호]` 써도 됨 ex) `%4`
-- `pkill [processName]` : 프로세스 이름을 지정하여 강제 종료
+- `pkill [processName]` : 프로세스 이름으로 강제 종료
 
 ---
 
