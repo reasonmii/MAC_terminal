@@ -22,9 +22,8 @@ tmux 구성 요소
   - 프로그램을 분리한 후 다른 터미널에 다시 연결 가능
   - Tmux 세션은 지속적이므로 연결이 끊겨도 Tmux에서 실행 중인 프로그램이 계속 실행됨
 
-Tmux의 모든 명령은 접두사로 시작하며, 기본적으로 Ctrl+b입니다.
-
-tmux는 prefix 키인 ctrl+b를 누른 후 다음 명령 키를 눌러야 동작할 수 있다. 다음 내용에서 ctrl + b, 어쩌고 내용이 있다면 tmux 내에서 쓸 수 있는 단축키다.
+tmux는 prefix 키인 `[cmd] b`를 누른 후 다음 명령 키를 눌러야 동작할 수 있다.
+다음 내용에서 `[cmd] b` 어쩌고 내용이 있다면 tmux 내에서 쓸 수 있는 단축키다.
 
 <b>설치 및 시작</b>
 - Tmux 설치 : `brew install tmux`
@@ -109,56 +108,33 @@ set -g status-bg  black
 
 
 session 관련 명령어
-```
-# 새로운 세션 생성
-tmux new -s (session_name)
+- 새로운 세션 생성 : `tmux new -s [session_name]`
+- 세션 만들면서 윈도우랑 같이 생성 : `tmux new -s (session_name) -n (window_name)`
+- 세션 종료 : `exit`
+- 세션 목록 : `tmux ls`
+- 세션 다시 시작하기(다시 불러오기) : `tmux attach -t session_number`
+- 세션 중단하기 : `[cmd] b d`
+- 스크롤하기 : `[cmd] b [`
+- 특정 세션 강제 종료 : `tmux kill-session -t session_number`
 
-# 세션 만들면서 윈도우랑 같이 생성
-tmux new -s (session_name) -n (window_name)
-
-# 세션 종료
-exit
-
-# 세션 목록
-tmux ls
-
-# 세션 다시 시작하기(다시 불러오기)
-tmux attach -t session_number
-
-# 세션 중단하기
-(ctrl + b) d
-
-# 스크롤하기
-ctrl + b + [
-
-# 특정 세션 강제 종료
-tmux kill-session -t session_number
 윈도우 관련 명령어
-# 새 윈도우 생성
-(ctrl + b) c
+- 새 윈도우 생성 : `[cmd] b c`
+- 새 윈도우 이동 : `[cmd] b b [숫자]`
 
-# 새 윈도우 이동
-(ctrl + b) b (숫자)
 틀 관련 명령어
-# 틀 나누기
-(ctrl + b) % #좌우로 나누기
-(ctrl + b) " #위아래로 나누기
+- 틀 나누기
+  - 좌우로 나누기 : `[cmd] b %`
+  - 위아래로 나누기 : `[cmd] b "`
+- 틀끼리 이동하기
+  - `[cmd] b 방향키`
+  - `[cmd] b q`
+  - 순서대로 이동 : `[cmd] b o`
+- 틀 삭제
+  - `[cmd] d`
+- 틀 사이즈 조정
+  - L,R,U,D 입력하면 상하좌우로 조절됨 : `[cmd] b : resize_pane -L 10`
+  - `[cmd] b [alt] 방향키`
 
-# 틀끼리 이동하기
-(ctrl + b) 방향키
-(ctrl + b) q
-(ctrl + b) o #순서대로 이동
-
-# 틀 삭제
-(ctrl + d)
-
-# 틀 사이즈 조정
-(ctrl + b) : resize_pane -L 10 #L,R,U,D 입력하면 상하좌우로 조절됨
-(ctrl + b) (alt) 방향키
-
-# 단축키 목록
-(ctrl + b) ?
-
-```
+단축키 목록 : `[cmd] b ?`
 
 https://edykim.com/ko/post/tmux-introductory-series-summary/
