@@ -13,4 +13,9 @@ ping
 hostname
 dns domain name 
 
+pycharm
+- SSH setting : 네트워크 접속
+- Rcync
+- scp
+
 
