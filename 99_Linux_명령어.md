@@ -9,3 +9,8 @@ ssh 다른 포트 접속
 scp sync
 - 네트워크 파일 전송
 
+ping
+hostname
+dns domain name 
+
+
