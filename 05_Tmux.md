@@ -19,7 +19,7 @@
   - session명 default : 숫자 (0~9 중 사용 가능한 첫 번째 값)
   - 하단 status bar : 모든 창 목록 표시
 - `tmux new -s [session_name]`, `tmux new-session -s [session_name]` : session명 지정해서 시작
-  - session명 직접 지정하면 여러 Tmux session 실행 시 유용
+  - session명 직접 지정하면 여러 tmux session 실행 시 유용
   - 설명적인 이름이 좋음
 - session, window 함께 생성해서 시작하기 : `tmux new -s [session_name] -n [window_name]`
 
@@ -35,25 +35,26 @@
 - `tmux kill-session -t [session_name]` : session 강제 종료
 
 <b>명령어</b>
-- prefix `[cmd] b` + [key]`
-- 모든 명령어 목록 : `[cmd] b ?`
-- `[cmd] b c` : shell이 있는 새 window 생성
-  - `[cmd] b [num]` : window 레벨에서 명령어로 창 이동
-  - `[cmd] b b [num]` : 새 window로 이동
-- `[cmd] b w` : 목록에서 창 선택
-- `[cmd] b 0` : 창 0으로 전환 (숫자 기준)
-- `[cmd] b ,` : 현재 창 이름 변경
-- `[cmd] b o` : 다음 창으로 이동
-- `[cmd] b ;` : 현재 창과 이전 창 사이 전환
-- 창 나누기
-  - `[cmd] b %` : 현재 창을 두 개 창으로 가로 분할
-  - `[cmd] b "` : 현재 창을 두 개 창으로 수직 분할
-- `[cmd] b [방향키]`, `[cmd] b q` : pane 사이 이동
-  - `[cmd] b o` : 순서대로 이동 
-- `[cmd] d` : 틀 삭제
-- `[cmd] b x` : 현재 pane 종료
-- `[cmd] b &` : window 종료
-- 스크롤하기 : `[cmd] b [`
+- prefix `[ctrl]+b` : 동시에
+- `[ctrl]+b, ?` : 모든 명령어 목록
+- `[ctrl]+b, [` : 스크롤
+- 생성
+  - `[ctrl]+b, c` : shell이 있는 새 window 생성
+- 분할
+  - `[ctrl]+b, %` : 현재 창을 두 개 창으로 가로 분할
+  - `[ctrl]+b, "` : 현재 창을 두 개 창으로 수직 분할
+- 이동
+  - `[ctrl]+b, w` : 목록에서 창 선택
+  - `[ctrl]+b, 0` : '0' window로 전환
+  - `[ctrl]+b, o` : 순서대로 pane 이동
+  - `[ctrl]+b, ;` : 현재 창과 이전 창 사이 이동
+  - `[ctrl]+b, [방향키]` 방향키로 pane 이동
+- `[ctrl]+b, ,` : 현재 창 이름 변경
+- `[ctrl] d` : 창 한 개 삭제
+
+<b>종료</b>
+- `[ctrl]+b, x` : 현재 pane 종료
+- `[ctrl]+b, &` : window 종료
 
 - 틀 사이즈 조정
   - L,R,U,D 입력하면 상하좌우로 조절됨 : `[cmd] b : resize_pane -L 10`
