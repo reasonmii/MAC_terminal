@@ -36,65 +36,43 @@
 
 <b>명령어</b>
 - prefix `[cmd] b` + [key]`
-
-
 - 모든 명령어 목록 : `[cmd] b ?`
-- 스크롤하기 : `[cmd] b [`
-
-
-
-<b>Tmux 창 및 관리를 위한 명령어</b>
-- `[cmd] b c` : shell이 있는 새 창 만들기
+- `[cmd] b c` : shell이 있는 새 window 생성
   - `[cmd] b [num]` : window 레벨에서 명령어로 창 이동
+  - `[cmd] b b [num]` : 새 window로 이동
 - `[cmd] b w` : 목록에서 창 선택
 - `[cmd] b 0` : 창 0으로 전환 (숫자 기준)
 - `[cmd] b ,` : 현재 창 이름 변경
-- `[cmd] b %` : 현재 창을 두 개 창으로 가로 분할
-- `[cmd] b "` : 현재 창을 두 개 창으로 수직 분할
 - `[cmd] b o` : 다음 창으로 이동
 - `[cmd] b ;` : 현재 창과 이전 창 사이 전환
+- 창 나누기
+  - `[cmd] b %` : 현재 창을 두 개 창으로 가로 분할
+  - `[cmd] b "` : 현재 창을 두 개 창으로 수직 분할
+- `[cmd] b [방향키]`, `[cmd] b q` : pane 사이 이동
+  - `[cmd] b o` : 순서대로 이동 
+- `[cmd] d` : 틀 삭제
 - `[cmd] b x` : 현재 pane 종료
 - `[cmd] b &` : window 종료
-- detach - `tmux kill-session -t 0` : 전체 session 종료
+- 스크롤하기 : `[cmd] b [`
 
-- `[cmd] b` : tmux 시작
-- `[cmd] b [화살표키]` : pane 사이 이동
-
+- 틀 사이즈 조정
+  - L,R,U,D 입력하면 상하좌우로 조절됨 : `[cmd] b : resize_pane -L 10`
+  - `[cmd] b [alt] 방향키`
 
 
 - Tmux가 시작되면 파일이 있는 경우 ~/.tmux.conf에서 구성 매개 변수를 읽음
 - ~.tmux.conf 구성 샘플
-~/.tmux.conf
-
-# Improve colors
-set -g default-terminal 'screen-256color'
-
-# Set scrollback buffer to 10000
-set -g history-limit 10000
-
-# Customize the status line
-set -g status-fg  green
-set -g status-bg  black
-``` 
+- `~/.tmux.conf`
+- Improve colors : `set -g default-terminal 'screen-256color'`
+- Set scrollback buffer to 10000 : `set -g history-limit 10000`
+- Customize the status line
+  - `set -g status-fg  green`
+  - `set -g status-bg  black`
 
 
-윈도우 관련 명령어
-- 새 윈도우 생성 : `[cmd] b c`
-- 새 윈도우 이동 : `[cmd] b b [숫자]`
-
-틀 관련 명령어
-- 틀 나누기
-  - 좌우로 나누기 : `[cmd] b %`
-  - 위아래로 나누기 : `[cmd] b "`
-- 틀끼리 이동하기
-  - `[cmd] b 방향키`
-  - `[cmd] b q`
-  - 순서대로 이동 : `[cmd] b o`
-- 틀 삭제
-  - `[cmd] d`
-- 틀 사이즈 조정
-  - L,R,U,D 입력하면 상하좌우로 조절됨 : `[cmd] b : resize_pane -L 10`
-  - `[cmd] b [alt] 방향키`
+set -g mouse on 						#마우스 사용
+set-option -g history-limit 10000		#history 라인 10000
+set-option -g default-shell /bin/zsh	#기본 bash zsh로 변경
 
 의열은 nohub 이 더 
 
