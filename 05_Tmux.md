@@ -65,19 +65,13 @@
   - `[ctrl]+b, [alt] 방향키`
 - `[ctrl]+b, spacebar` : 틀 레이아웃 변경
 
-<b>copy mode</b>
-- copy mode : console을 스크롤하거나 내용 복사하는 등의 기능 할 수 있는 mode
-- `[ctrl]+b, [` : copy mode 진입
-- `q`, `esc` : copy mode 나오기
-- 이동
-  - 방향키 : 커서 이동
-  - pageUp, pageDown : 페이지 이동
-    - iTerm : fn + up/down
-    - terminal : alt + up/down
+<b>키 연결 및 해제</b>
+- `[ctrl]+b, : bind-key [-cnr] [-t key-table] key command [arguments]`
+- `[ctrl]+b, : unbind-key [-acn] [t key-table] key`
 
 <b>설정 저장하기</b>
 - `~/.tmux.conf` 파일 생성
-- 옵션 설정 `set` and `setw`
+- 옵션 설정
   - `set -g <option-name> <option-value>`  : set-option
   - `setw -g <option-name> <option-value>` : set-window-option
 - `set-option -g default-shell /bin/zsh` : 기본 bash zsh로 변경 
@@ -88,10 +82,12 @@
   - `set -g status-fg  green`
   - `set -g status-bg  black`
 
-<b>키 연결 및 해제</b>
-- `[ctrl]+b, : bind-key [-cnr] [-t key-table] key command [arguments]`
-- `[ctrl]+b, : unbind-key [-acn] [t key-table] key`
-
-
-의열은 nohub 이 더 
-
+<b>copy mode</b>
+- copy mode : console을 스크롤하거나 내용 복사하는 등의 기능 할 수 있는 mode
+- `[ctrl]+b, [` : copy mode 진입
+- `q`, `esc` : copy mode 나오기
+- 이동
+  - 방향키 : 커서 이동
+  - pageUp, pageDown : 페이지 이동
+    - terminal : alt + up/down
+    - iTerm : fn + up/down
