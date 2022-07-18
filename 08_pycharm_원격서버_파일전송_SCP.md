@@ -8,14 +8,11 @@
 ### 서버로 파일 전송 : 내 PC (Local) -> 원격지(Remote)
 - 단일 파일 전송 : `scp [옵션] [파일명] [원격지_id]@[원격지_ip]:[받는 위치]`
   - port 번호가 필요하 경우 option `-P` 입력
-  - ex) 
+  - ex) `C:\Users\user>sch -P 1111 /dataset/test.txt server_id@000.000.000.000:workspace/workspace/dataset/`
   - 의미 : test.txt파일을 서버의 workspace/workspace/dataset이라는 폴더로 전송
-
- 
-
 - 여러 파일 전송 : `scp [옵션] [파일명1] [파일명2] [원격지_id]@[원격지_ip]:[받는 위치]`
-
 - directory(폴더) 전송 : `scp -r [옵션] [전송 폴더명] [원격지_id]@[원격지_ip]:[받는 위치]`
-- 
+  - ex) `C:\Users\user>sch -r -P 1111 /dataset server_id@000.000.000.000:workspace/workspace/dataset/`
+  - dataset 폴더를 서버의 workspace/workspace/dataset 폴더 아래에 전송
 
 
