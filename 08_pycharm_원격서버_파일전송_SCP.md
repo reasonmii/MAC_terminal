@@ -16,6 +16,7 @@
   - dataset 폴더를 서버의 workspace/workspace/dataset 폴더 아래에 전송
 
 
+------
 옵션 | 설명 | 사용법
 ------
 r	| 디렉토리 내 모든 파일/디렉토리 | scp -r
