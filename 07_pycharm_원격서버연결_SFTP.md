@@ -1,36 +1,21 @@
-### FTP (File Transfer Protocol)
-- 파일을 전송하는 통신 규약
-- 명령어를 전달하는 기본 port : 21
-- 데이터를 전달하는 port : 20 or random
-- 데이터 전달 방식
-  - active : FTP Client -(command)-> FTP server / FTP server -(data)-> FTP Client
-  - passive : FTP Client -(command, data)-> FTP server
-- FTPS : 보안 강화 버전
-
-### SFTP (Secure File Transfer Protocol)
-- FTP의 형태를 가지고 있지만 SSH를 이용해서 contents 연결 (SSH 부가기능 중 하나)
-  - FTP와 같이 파일을 전송할 때 암호화 해서 전송
-  - but, 기본 21 port가 아닌 SSH 접속 시 사용하는 port를 사용하고, SSH 접속 계정으로 로그인
-- 장점
-  - file upload/download가 쉬워짐
-  - 사용자가 root 계정인 경우
-    - SSH 기반이라 permission 변경에서 더 강력함
-    - 서버의 시스템 관리가 편해짐
-  - 외부에서도 파일 관리가 편함
-- 일반 사용자들은 FTP 접속과 SFTP 접속 간 크게 차이가 없음
-- '내부' 네트워크 접속 때는 Samba가 더 좋지만, '외부' 접속 환경에서는 sFTP가 가장 좋음
+pycharm 원격 서버 연결
+- terminal/iTerm 으로 ssh 접속으로 개발하는 환경이 불편하기 때문에 사용 (debugging X, 마우스 사용X)
+- **Run on Remote Server**
+  - Pycharm Professional 버전에서 제공하는 기능
+  - local에서 작성한 코드를 원격 server에서 실행하는 것
+  - 원격 서버에 Pycharm을 설치하지 않아도 Pycharm의 강력한 기능(디버깅 등) 사용 가능
+  - 딥러닝과 같은 복잡한 파이썬 코드를 실행할 때 꼭 필요
 
 ---
 
 ### pycharm에서 SFTP 설정하기
-- 참고 : https://semotube.tistory.com/77
 - Preferences - Build, Execution, Deployment - Deployment - + - SFTP 클릭 - ok
 - server name 입력
 - SSH 추가 생성 : SSH configuration '...' 클릭 - + - SSH 정보 입력 - Test Connection - OK
 
 ### 서버 쪽 경로 직접 지정하기
 - Preferences - Build, Execution, Deployment - Deployment - Choose Root Path 폴더모양 클릭
-  - 대화상자 부분에 `/home/서버명`/서버명2` 입력 ex) `/home/pi/test001`
+  - 대화상자 부분에 `/home/서버명1`/서버명2` 입력 ex) `/home/pi/test001`
   - ok - ok
 - 'Create New Project' 클릭 - location 폴더 모양 클릭
   - local 경로 설정 : new folder - 'test001' - create - open
@@ -53,13 +38,6 @@
 
 ### Pycharm 원격 서버 연결
 
-<b>Run on Remote Server</b>
-- Pycharm Professional 버전에서 제공하는 기능
-- local에서 작성한 코드를 원격 server에서 실행하는 것
-- 원격 서버에 Pycharm을 설치하지 않아도 Pycharm의 강력한 기능(디버깅 등) 사용 가능
-- 딥러닝과 같은 복잡한 파이썬 코드를 실행할 때 꼭 필요
-- 참고 : https://pytogether.tistory.com/1
-
 <b>1. Remote Interpreter 설정하기</b>
 - 로컬에서 작성한 코드를 서버에서 실행하기 위해 서버에 설치된 파이썬 Interpreter 지정
 1) Pycharm에서 새 프로젝트 생성
@@ -67,7 +45,7 @@
 2) Project Interpreter 설정 창 열기
    - File - Settings - Project - Project Interpreter
 3) Remote Interpreter 연결
-   - Project Interpreter 옆 톱날 클릭 - Add Remote - Deployment configuration 더보기
+   - Project Interpreter 옆 톱날 클릭 - Add Remote - Deployment configuration '...'
 4) Remote Interpreter를 연결하기 위해 우선 원격 서버를 추가
    - Deployment 창의 왼쪽 상단 '+' 버튼 클릭
    - 서버명 입력
@@ -128,3 +106,34 @@ sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 # Runs the op.
 print(sess.run(c))
 ```
+
+---
+
+### FTP (File Transfer Protocol)
+- 파일을 전송하는 통신 규약
+- 명령어를 전달하는 기본 port : 21
+- 데이터를 전달하는 port : 20 or random
+- 데이터 전달 방식
+  - active : FTP Client -(command)-> FTP server / FTP server -(data)-> FTP Client
+  - passive : FTP Client -(command, data)-> FTP server
+- FTPS : 보안 강화 버전
+
+### SFTP (Secure File Transfer Protocol)
+- FTP의 형태를 가지고 있지만 SSH를 이용해서 contents 연결 (SSH 부가기능 중 하나)
+  - FTP와 같이 파일을 전송할 때 암호화 해서 전송
+  - but, 기본 21 port가 아닌 SSH 접속 시 사용하는 port를 사용하고, SSH 접속 계정으로 로그인
+- 장점
+  - file upload/download가 쉬워짐
+  - 사용자가 root 계정인 경우
+    - SSH 기반이라 permission 변경에서 더 강력함
+    - 서버의 시스템 관리가 편해짐
+  - 외부에서도 파일 관리가 편함
+- 일반 사용자들은 FTP 접속과 SFTP 접속 간 크게 차이가 없음
+- '내부' 네트워크 접속 때는 Samba가 더 좋지만, '외부' 접속 환경에서는 sFTP가 가장 좋음
+
+---
+
+참고
+- https://chaelin0722.github.io/mac/pycharm_ssh/
+- https://semotube.tistory.com/77
+- https://pytogether.tistory.com/1
