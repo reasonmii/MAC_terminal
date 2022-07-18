@@ -1,4 +1,4 @@
-<b>Pycharm 원격 서버 연결</b>
+### Pycharm 원격 서버 연결
 
 <b>Run on remote server</b>
 - Pycharm Professional 버전에서 제공하는 기능
@@ -31,17 +31,50 @@
      - Anaconda, virtualenv 등 사용하는 개발환경에 따라 다르니 잘 확인하고 입력할 것
      - 파이썬 위치 모를 때) 원격 서버에서 "which python"을 실행하면 확인 가능
 6) 원격 Interpreter가 제대로 연결되었는지 확인하기
-   - Project Interpreter로 방금 생성한 원격 Interpreter를 사용할 경우 다음 그림처럼 원격 Interpreter에 설치된 파이썬 패키지 리스트가 보인다!
-
-
-
+   - Settings - Project Interpreter로 방금 생성한 원격 Interpreter를 사용할 경우 원격 Interpreter에 설치된 파이썬 패키지 리스트가 보임
 
 <b>2. Remote Host 경로 지정하기</b>
+- local에서 작성한 python code를 원격 서버에 업로드하기 위함
+- Tools - Deployment - Browse Remote Host
+- local code를 원격 서버에 업로드할 때 directory 위치 지정해야 함
+  - Remote Host 창에서 Deployment 서버를 설정하기 위해 더보기(...) 클릭
+  - Mappings - Deployment path on server 입력창에 업로드 경로 입력 ex) `/sources/py-study`
+    - local file은 `$HOME/sources/py-study`로 업로드 됨
+    - `$HOME`은 Connection 탭에서 입력한 Root path에 해당 (앞에서 /home/hkh 로 입력함)
+    -  즉, local에서 작성한 파일은 원격 서버의 /home/hkh/sources/py-study로 업로드 됨
+  - 방금 설정한 Deployment 서버를 "기본 서버로 사용" 설정
+    - Pycharm의 파일 자동업로드 기능을 사용하기 위함
+    - 기본 서버로 설정된 Deployment 서버는 Bold체로 변함
 
+<b>3. 파일 업로드 방법과 자동 업로드 방법</b>
+- 자동 업로드 기능을 사용하면 코드 수정 시 파일이 원격 서버로 자동 업로드(동기화) 됨
+- local 파일 서버로 업로드하기
+  - 특정 파일 연 상태에서 Tools - Deployment - Automatic upload
 
-<b>3. GPU 실행을 위한 환경변수 설정하기</b>
+<b>4. GPU 실행을 위한 환경변수 설정하기</b>
+- 딥러닝 Framework(Tensorflow, Theano, PyTorch 등) 사용을 위해 CUDA 라이브러리 위치를 환경변수로 지정해야 함
+- Pycharm에서 원격 서버로 코드를 실행 시 Linux에서 설정한 사용자 환경변수가 자동으로 연결되지 않음 → 추가 설정 필요
+- 실행할 파일 우클릭 - Edit Configuration - Environment variables - 더보기(...)
+  - LD_LIBRARY_PATH 환경변수 추가
+    - ex) usr/local/cuda/lib64 : 설치된 CUDA 위치에 따라 조금 다를 수 있음
+- test code를 local pycharm 프로젝트로 복사해서 실행해 보기
+  - Device mapping에 `GPU:0 -> device:0`과 유사한 메시지를 확인하면 local에서 작성한 GPU code가 원격 서버에서 올바르게 실행되는 것
 
+test code
+```
+import tensorflow as tf
 
+# Creates a graph.
+a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+c = tf.matmul(a, b)
+
+# Creates a session with log_device_placement set to True.
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+
+# Runs the op.
+print(sess.run(c))
+```
 
 
 
