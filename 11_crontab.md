@@ -11,8 +11,16 @@
   - `#--------------------#`
 
 <b>기본 사용</b>
-- `crontab -e` : crontab을 설정하는 편집기 열기
-  - 각종 crontab 명령어 입력 후 `:wq` - 갱신
+- 관리자 권한이 있는 경우 `sudo vi /etc/crontab/` 파일에 기록
+  - 한 눈에 예약 작업 확인 가능
+  - 명령을 실행할 사용자 명시 가능
+  - 파일 내 입력
+    - `SHELL=/bin/sh` : cron을 실행할 shell
+    - `PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin`: cron을 실행할 때의 PATH
+    - 예약 작업 규칙(주기), 명령어 입력 (tab, 띄어쓰기로 구분)
+- 관리자 권한이 없는 경우
+  - `crontab -e` : crontab을 설정하는 편집기 열기
+    - 각종 crontab 명령어 입력 후 `:wq` - 갱신
 - `crontab -l` : 현재 crontab 내용 확인 (표준 출력)
 - `crontab -r` : crontab 삭제
 - 기본 사용 예시
@@ -20,7 +28,7 @@
   - 내용 입력 : `* * * * * ls -al`
     - 별 다섯 개 = "매 분마다 실행" 
 
-<b>주기 결정</b>
+<b>주기 입력</b>
 - `* * * * *`
 - 각 별 위치에 따라 주기를 다르게 설정 가능
 - 순서 : 분(0-59) - 시간(0-23) - 일(1-31) - 월(1-12) - 요일(0-7)
@@ -65,6 +73,7 @@
     - 매일 오후 11시 50분에 크론탭 백업
 
 참고
+- https://cloud-oky.tistory.com/320
 - https://jdm.kr/blog/2
 - https://jdm.kr/blog/4
 
