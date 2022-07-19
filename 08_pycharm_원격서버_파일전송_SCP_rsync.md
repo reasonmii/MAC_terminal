@@ -5,7 +5,7 @@
 - 네트워크가 연결되어 있는 환경에서 ssh와 동일하게 22번 포트를 사용하여 파일을 주고받음
   - = 보안 관점에서도 안정된 프로토콜
 
-### 서버로 파일 전송 : 내 PC (Local) -> 원격지(Remote)
+<b>서버로 파일 전송 : 내 PC (Local) -> 원격지(Remote)</b>
 - 단일 파일 전송 : `scp [옵션] [파일명] [계정]@[원격지_ip]:[받는 위치]`
   - 기본 SSH port (22) 사용하는 경우 : 옵션 입력X
   - SSH port가 다른 경우 : 옵션 `-P [서버port]` 입력
@@ -16,7 +16,7 @@
   - ex) `C:\Users\user>sch -r -P 1111 /dataset server_id@000.000.000.000:workspace/workspace/dataset/`
   - dataset 폴더를 서버의 workspace/workspace/dataset 폴더 아래에 전송
 
-### 서버에서 파일 다운받기 : 원격지(Remote) -> 내 PC (Local)
+<b>서버에서 파일 다운받기 : 원격지(Remote) -> 내 PC (Local)</b>
 - 단일 파일 다운 : `scp [옵션] [계정]@[원격지_ip]:[보내는 위치] [받는 위치]`
   - 기본 SSH port (22) 사용하는 경우 : 옵션 입력X
   - SSH port가 다른 경우 : 옵션 `-P [서버port]` 입력
