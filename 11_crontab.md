@@ -47,25 +47,24 @@
   - `*/10 2,3,4 5-6 * * /home/script/test.sh`
 
 <b>cron logging</b>
-- 처리 내역 log 남기기
-- `* * * * * /home/script/test.sh > /home/script/test.sh.log 2>&1`
-  - 매분마다 'test.sh.log' 파일 갱신 → 작업 내용이 어떻게 처리 되었는지 알 수 있음
-  - 만약 `2>&1` 을 제거하면 shell script에서 표준 출력 내용만 나옴
+- log 안 남길 때 : `* * * * * /home/script/test.sh > /dev/null 2>&1`
+- 처리 내역 log 남길 때
+  - `* * * * * /home/script/test.sh > /home/script/test.sh.log 2>&1`
+    - 매분마다 'test.sh.log' 파일 갱신 → 작업 내용이 어떻게 처리 되었는지 알 수 있음
+    - 만약 `2>&1` 을 제거하면 shell script에서 표준 출력 내용만 나옴
+  - 누적 log 쌓기 : log를 계속 남겨야 하는 경우
+    - `* * * * * /home/script/test.sh >> /home/script/test.sh.log 2>&1`
+    - but, 과도하게 쌓이면 Linux 퍼포먼스에 영향 → 가끔씩 비워주거나 파일을 새로 만들어 줄 것
 
-그런데, 이게 너무 자주 실행 되고 또한 지속적으로 로깅이 되야 해서 로그를 계속 남겨둬야 한다면 다음처럼 입력합니다.
+<b>crontab backup</b>
+- 주기적으로 crontab backup 필요
+- 실수로 directory 삭제하거나 (`crontab -r`) 기존 cron 내용이 날아갈 수 있기 때문
+- `crontab -l > /home/bak/crontab_bak.txt`
+  - 크론탭 내용을 txt 파일로 만들어 저장
+  - 자동화 code : `50 23 * * * crontab -l > /home/bak/crontab_bak.txt`
+    - 매일 오후 11시 50분에 크론탭 백업
 
-* * * * * /home/script/test.sh >> /home/script/test.sh.log 2>&1
-그러면 계속 로그가 누적이 되는 것을 확인 할 수 있을겁니다. 대신 로그가 과도하게 쌓이면 리눅스 퍼포먼스에 영향을 주므로 가끔씩 비워주거나 파일을 새로 만들어주는 센스가 필요합니다.
-
-반대로 로그는 필요 없는 크론을 위해선 다음처럼 입력합니다.
-
-* * * * * /home/script/test.sh > /dev/null 2>&1
-
-
-
-
-
-
-
-
+참고
+- https://jdm.kr/blog/2
+- https://jdm.kr/blog/4
 
