@@ -40,5 +40,28 @@ c	| 압축 복사 | scp -c
 v | 과정 출력 복사 | scp -v
 a |	아카이브 모드 복사 | scp -a
 
+---
 
-- 참고 : https://comgenie.tistory.com/m/86
+### rsync : remote synchronization)
+- 원격에 있는 file, directory를 복사하고 동기화하는 방식
+- ex) `rsync -azP /home/test/ test@111.111.111.111:~/rsync/test`
+- 원격 port가 기본 port(22)가 아닌 경우 : `rsync --rsh="ssh -p8000"`
+- option
+  - a : 권한 소유주 및 위치까지 그대로 가져옴 (Archive)
+  - v : 동기화 상세 진행 상항 나타냄 (Verbose)
+  - r : 하위 폴더를 포함하여 모두 복사 (Recursive)
+  - p : 원본 파일 시간의 수정 시간, 권한 등 정보 보존 (Perms)
+  - z : 데이터 압축 전송 (Compress)
+
+### scp vs. rsync
+- scp
+  - 전송하는 파일 중 symbolic link가 있으면 이를 유지하지 않고 링크된 원본 파일 전송
+- rsync
+  - 속도 빠름
+  - 최초에 모든 파일, 디렉토리를 복사하고 이후에는 차이가 있는 것만 복사하기 때문
+
+---
+
+<b>참고</b>
+- https://comgenie.tistory.com/m/86
+- https://my-t-space.tistory.com/37
