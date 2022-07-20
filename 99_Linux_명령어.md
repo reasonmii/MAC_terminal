@@ -7,10 +7,6 @@ pycharm
 - pwdx 10409
 
 - screen
-- nohub > ... lst &
-- apt
-- sudo apt
-- sudo apt-get
 - awk- split and print
 - sed
 - echo $PATH
