@@ -14,20 +14,25 @@
 - github에서 특정 repository 주소 복사 `~.git`
 - 터미널 : `git clone ~.git`
 
+<b>원격 repo 변경사항 반영하기</b>
+- `git pull origin master`
+
 <b>local repository 만들기</b>
 - `cd gitTest/`
 - gitTest 내에서 명령어 입력
   - `git init`
   - 파일 확인 : `ls`
-- github에 올리기
-  - `git add .`
-  - `git commit -m "message"`
-  - online git upload : `git push origin master`
 
-<b>명령어</b>
+<b>local 작업 후 github 업로드</b>
+- `git add .`
+- `git commit -m "message"`
+- `git push origin master` : online git master branch upload
+  - `git push -f origin main` : ignore error
+  - ★ 보통은 master 말고 개인 branch에 업로드
+
+<b>log 확인</b>
 - `git log` : git log 확인
-
-
+- `git checkout [3a5c6c7]` : log 목록 중 index를 통해 특정 부분 상세 확인
 
 <b>local repository와 online repository가 연결되어 있는지 확인</b>
 - `git remote -v`
