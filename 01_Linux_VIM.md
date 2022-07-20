@@ -167,6 +167,12 @@
     - `--help`
     - '--version'
 
+### grep
+- `grep [opt] [pattern] [file/directory name]`
+- pattern : 정규식 Regular Expression 사용
+- grep을 pipe 입력 stream으로 주는 경우 filter처럼 동작
+  - file/directory name을 안 써도 입력 stream으로 받은 내용, pattern을 바탕으로 grep 명령어 시행
+
 ### history
 - 사용한 명령어들을 'RAM history list'에 임시 저장하고, 종료 시점에는 history file을 업데이트하며 모두 추가함
 - 기본 확인
