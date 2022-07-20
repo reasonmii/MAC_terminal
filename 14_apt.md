@@ -1,5 +1,6 @@
 ### apt : Advanced Packing Tool
 - .deb 형식의 package 관리 tool (설치, 삭제, update)
+- index는 `/etc/apt/sources.list'에서 관리
 
 <b> apt vs. apt-get/apt-cache</b>
 - 내부 동작 차이는 거의 없음
