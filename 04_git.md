@@ -24,8 +24,9 @@
   - 파일 확인 : `ls`
 
 <b>local 작업 후 github 업로드</b>
-- `git add .`
-- `git commit -m "message"`
+- add + commit
+  - 방법1 : `git add .` → `git commit -m "message"`
+  - 방법2 : `git commit -am "message"`
 - `git push origin master` : online git master branch upload
   - `git push -f origin main` : ignore error
   - ★ 보통은 master 말고 개인 branch에 업로드
@@ -33,6 +34,11 @@
 <b>log 확인</b>
 - `git log` : git log 확인
 - `git checkout [3a5c6c7]` : log 목록 중 index를 통해 특정 부분 상세 확인
+- `git checkout HEAD~1` : 이전 commit으로 돌아가기
+
+<b>master branch로 merge 하기</b>
+- `git switch [branch name]`
+- `git merge master`
 
 <b>local repository와 online repository가 연결되어 있는지 확인</b>
 - `git remote -v`
