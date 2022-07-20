@@ -17,7 +17,6 @@ pycharm
 - pwdx 10409
 
 - awk- split and print
-- sed
 - echo $PATH
 - opt : 외부파일 다운로드
 
