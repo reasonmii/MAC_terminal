@@ -33,6 +33,8 @@
 - add + commit
   - 방법1 : `git add .` → `git commit -m "message"`
   - 방법2 : `git commit -am "message"`
+  - 방법3 : `git merge --squash [branch name]` → `git commit -m "message"`
+    - 여러 개의 commit을 하나의 commit으로 묶어버리고 싶을 때
 - `git push origin master` : online git master branch upload
   - `git push -f origin main` : ignore error
   - ★ 보통은 master 말고 개인 branch에 업로드
