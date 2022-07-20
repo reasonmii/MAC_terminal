@@ -10,14 +10,20 @@
 - `git config --global user.email "githubEmail"`
 - `which git` : git 저장 경로 확인
 
-<b>github repository 연동하기</b>
+<b>github repo 연동</b>
 - github에서 특정 repository 주소 복사 `~.git`
 - 터미널 : `git clone ~.git`
 
-<b>원격 repo 변경사항 반영하기</b>
+<b>local repository와 online repository가 연결되어 있는지 확인</b>
+- `git remote -v`
+  - 결과값이 없는 경우 : 연결 안 된 것
+  - 연결 방법 : `git remote add origin repository주소.git`
+  - 연결 재확인 : `git remote -v`
+
+<b>원격 repo 변경사항 local에 반영하기</b>
 - `git pull origin master`
 
-<b>local repository 만들기</b>
+<b>local repo 생성</b>
 - `cd gitTest/`
 - gitTest 내에서 명령어 입력
   - `git init`
@@ -36,13 +42,12 @@
 - `git checkout [3a5c6c7]` : log 목록 중 index를 통해 특정 부분 상세 확인
 - `git checkout HEAD~1` : 이전 commit으로 돌아가기
 
+<b>branch 이동</b>
+- `git checkout master`
+- `git switch master`
+
 <b>master branch로 merge 하기</b>
 - `git switch [branch name]`
 - `git merge master`
 
-<b>local repository와 online repository가 연결되어 있는지 확인</b>
-- `git remote -v`
-  - 결과값이 없는 경우 : 연결 안 된 것
-  - 연결 방법 : `git remote add origin repository주소.git`
-  - 연결 재확인 : `git remote -v`
  
