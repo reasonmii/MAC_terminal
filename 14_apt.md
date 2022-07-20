@@ -1,5 +1,6 @@
 ### apt : Advanced Packing Tool
 - .deb 형식의 package 관리 tool (설치, 삭제, update)
+  - ※ Linux에서는 `brew`가 없으니 `apt` 사용해서 설치
 - index는 `/etc/apt/sources.list'에서 관리
 
 <b> apt vs. apt-get/apt-cache</b>
@@ -16,8 +17,8 @@
   - 보통 `apt`를 사용하지만 script 작성 시에는 `apt-get`이 더 좋음
     - 다양한 기능 사용, 안정적, 호환성 높음 
 - 둘 차이 확인 코드
-  - `sudo apt-get install python3-pip`
   - `sudo apt install gcc`
+  - `sudo apt-get install python3-pip`
 
 <b>설치</b>
 - `apt install [package name]` : package 설치
