@@ -1,3 +1,4 @@
+### 특수문자
 
 <b>표준 출력</b>
 - `>` : new (새로쓰기, 덮어쓰기)
@@ -39,5 +40,56 @@
      - 표준 에러 redirection (stderr만 출력)
   - log 파일이 필요 없을 경우 (표준 출력 필요X) : `./test.sh >> /dev/null 2>&1`
 
+---
+
+### Redirection
+- 표준(standard) stream 흐름 변경
+- process의 입/출력을 파일로 사용
+- 특수문자 `>`, `<` 사용
+- `ls > ls.txt` : `ls` 명령어 출력 결과를 `ls.txt` 파일에 저장
+  - `ls`의 출력 stream을 `ls.txt`의 입력 stream으로 전송
+- `head < ls.txt` : `ls.txt` 처음 10줄 가져오기
+  - `ls.txt`를 `head`의 입력 stream으로 전송
+- `head < ls.txt > ls2.txt`
+  - `ls.txt` 내용을 `head` 입력 stream으로 전송
+  - `head` 명령어는 `ls.txt`의 처음 10줄 출력
+  - `head` 명령어의 출력 stream을 `ls2.txt` 파일에 저장
+
+---
+
+### Pipe
+- process의 출력 stream을 process의 입력 stream으로 사용할 때
+  - redirection 기호 사용하면 오류 발생 : file/directory가 없다
+  - → pipe 쓸 것
+- 특수문자 `|` 사용
+  - `A|B` : `|`를 기준으로 A에 있는 command의 표준 출력을 B에 있는 command의 표준 입력으로 사용
+- `ls | grep ls.txt`
+  - `ls`의 출력 stream을 `grep`의 입력 stream으로 보냄
+  - 현재 directory에 `ls.txt` 파일이 있으면 결과 출력
+
+---
+
+### Redirection & Pipe
+- `ls | grep ls.txt > ls3.txt`
+  - `ls` 출력 stream을 `grep` 입력 stream으로 연결
+  - `ls` 명령어의 출력물을 `grep` 명령어로 필터링
+  - 최종 결과를 `ls3.txt` 파일에 기록
+- `head dummy.txt 2>> error.txt`
+  - `dummy.txt` 파일의 처음 10줄을 출력
+  - 오류 stream은 `error.txt`에 연결해서 기록
+    - ex) `dummy.txt` 파일이 없는 경우 오류 메시지가 `error.txt` 파일에 기록
+
+---
+
 참고
 - https://jdm.kr/blog/4
+- https://jdm.kr/blog/74
+
+
+
+
+
+
+
+
+
