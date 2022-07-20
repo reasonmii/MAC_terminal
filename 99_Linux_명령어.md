@@ -20,13 +20,13 @@ pycharm
 - sed
 - echo $PATH
 - opt : 외부파일 다운로드
+
 - feat: add - personal access token
 
 - transformer
 - variants
 
 - git push origin main
-- 
 - git push -f origin main : master에 올리면 욕을 엄청 먹는다, 상사가 안 좋게 본다
 - git checkout
 - squash & merge : 여기에 suggestino 받으면 terminal에서 pull
