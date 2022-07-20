@@ -28,8 +28,5 @@ pycharm
 
 - settings - developer settings
 
-- git-github repository issue 수정
-
-
 
 
