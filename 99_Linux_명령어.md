@@ -16,7 +16,6 @@ pycharm
 
 - pwdx 10409
 
-- screen
 - awk- split and print
 - sed
 - echo $PATH
