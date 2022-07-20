@@ -106,6 +106,8 @@
   - 다음과 같은 명령어 입력하면? `echo "1234hello5678" | sed -f command.file
     - 결과 : 1234badbye5678
 
+- `cat -n` : 모든 라인 앞에 숫자 출력
+
 ---
 
 참고
