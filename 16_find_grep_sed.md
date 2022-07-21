@@ -128,10 +128,10 @@ exec를 사용하여 검색한 대상에 추가 명령어를 수행할 수도 �
 
 ---
   
-### sed : stream editor
+### sed : streamlined editor
 - `ed` + `grep`
   - 파일을 수정할 수 있지만 `ed`처럼 대화식 처리는 불가능
-- line 1개 씩 읽고 표준출력 (원본파일 변경X) ★
+- line 1개 씩 읽고 표준출력 (원본파일 변경X) ★★
   - 각 line을 읽을 때마다 ed와 같은 완전한 형식의 대치 연산자 사용
   - 일치하는 문자열이 없으면 그 line은 수정하지 않고 그대로 출력
 - ed보다 좋은점
@@ -142,6 +142,10 @@ exec를 사용하여 검색한 대상에 추가 명령어를 수행할 수도 �
 - ※ `/^$/` : 라인의 시작, 끝 사이 아무것도 없는 공백 라인 - space도 안됨 (문자이기 때문)
 
 <b>일부 출력</b>
+- `sed -n '1p' [file]` : 첫 라인 출력
+  - `p` : print
+- `sed -n '1,3p' [file]` : 1~3 라인 출력
+- `sed -n '8,$p' [file]` : 8~끝 라인 출력
 - `sed -n '/hello/p' [file]` : hello가 있는 라인만 프린트
 - `sed '/hello/p' [file]` : hello가 있는 라인은 두 번씩 프린트
 - `sed '2q' [file]` : 2라인만 보여주고 중지
@@ -171,8 +175,8 @@ exec를 사용하여 검색한 대상에 추가 명령어를 수행할 수도 �
   - `sed '/[hH]ello/d' [file]` : hello, Hello를 포함한 라인 모두 삭제
   - `sed '/hello/!d' [file]` : hello 문자가 있는 라인만 삭제X
     - = `grep -v hello [file]`
-  - `sed '1.2d' [file]` : 첫 번째, 두 번째 라인 삭제
-  - `sed '3d' [file]` : 세 번째 라인 삭제
+  - `sed '1.2d' [file]` : 1~2 라인 삭제
+  - `sed '3d' [file]` : 3 라인 삭제
   - `sed '/^$/d [file]` : 공백 라인 삭제 ★
 - 모든 공백 라인 제거
   - `sed '/^$/d' [file]`
