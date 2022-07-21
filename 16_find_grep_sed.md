@@ -1,4 +1,79 @@
 
+### find
+- `find [option] [경로] [표현식]`
+  - option
+    - P : 심볼릭 링크를 따라가지 않고, 심볼릭 링크 자체 정보 사용
+    - L : 심볼릭 링크에 연결된 파일 정보 사용
+    - H : 심볼릭 링크를 따라가지 않으나, Command Line Argument를 처리할 땐 예외
+    - D : 디버그 메시지 출력
+  - 경로
+    - 상대 경로, 절대 경로 모두 가능
+    - 생략하면?
+      - 리눅스 : 현재 위치(.)를 입력받은 것으로 간주
+      - 유닉스 : 에러 발생
+  - 표현식
+    - name : 해당 이름의 파일 찾기 (정규표현식 활용)
+    - type : 지정된 파일 type에 해당하는 파일 검색
+    - user : 해당 user에게 속한 파일 검색
+    - empty : 빈 directory or 크기가 0인 파일 검색
+    - delete : 검색된 파일 혹은 directory 삭제
+    - exec : 검색된 파일에 대해 지정된 명령 실행
+    - path : 지정된 문자열 패턴에 해당하는 경로에서 검색
+    - print : 검색 결과 출력, 검색 항목은 newline으로 구분
+    - print0 : 검색 결과 출력, 검색 항목은 null로 구분
+    - size : 파일 크기를 사용하여 파일 검색
+    - mindepth : 검색을 시작할 하위 directory 최소 깊이 지정
+    - maxdepth : 검색할 하위 directory 최대 깊이 지정
+    - atime : n일 이내에 access된 파일을 찾기
+    - ctime : n일 이내에 만들어진 파일을 찾기
+    - mtime : n일 이내에 수정된 파일을 찾기
+    - cnewer file : 해당 파일보다 최근에 수정된 파일을 찾기
+- 보통 option은 거의 사용되지 않고 표현식을 통해 찾을 target 정함
+- 표현식은 중첩을 통해 대상 범위 축소 가능
+
+<b>-name</b>
+- 파일명으로 찾기
+- 가장 많이 사용되는 표현식
+- 와일드 카드 `*` 를 포함하여 자신이 원하는 파일들과 확장자들을 찾아서 나열
+- `find . -name "*test*"` : 현재 directory에서 test가 포함된 파일 찾기
+- `find . -name "test*"` : 현재 directory에서 test로 시작되는 파일 찾기
+- `find . -name "*test"` : 현재 directory에서 test로 끝나는 파일 찾기
+- `find . -name "*.txt"` : 현재 directory에서 .txt 확장자 모두 찾기
+- `find . -name "*.txt" -delete` : 현재 directory에서 .txt 확장자 파일 검색 후 모두 삭제
+
+<b>-type</b>
+- type으로 찾기
+- 특정 파일 type만 추출 가능
+  - d : directory
+  - f : 일반적인 파일
+  - l : symbolic link
+- `find . -type d` : 현재 directory에서 모든 directory 찾기
+- `find . -name "*test*" -type d` : 현재 directory에서 test가 들어가는 directory 찾기
+- `find . -type f` : 현재 directory에서 모든 파일 찾기
+
+<b>-empty, -size</b>
+- 파일 크기로 찾기
+- size 단위
+  - b : block
+  - c : byte
+  - k : kbyte
+  - w : 2byte word
+- `find . -empty` : 현재 directory에서 빈 directory or 크기가 0인 파일 검색
+- `find . -name "*test*" -empty -delete` : 현재 directory에서 test가 들어가는 빈 directory or 크기가 0인 파일 검색하여 삭제
+- `find . -size 1024c` : 현재 directory에서 1024byte 파일 검색
+- `find . -size +1024c` : 현재 directory에서 1024byte 이상인 파일 검색
+- `find . -size -1024c` : 현재 directory에서 1024byte 미만인 파일 검색
+- `find . -size +1k -size -10k` : 현재 directory에서 1kb보다 크고 10kb보다 작은 파일 검색
+ 
+<b>-exec</b>
+- 검색된 파일에서 추가 명령 실행하기
+- `find . -name "*test*" -exec ls -l {} \;` : 현재 directory에 "test"가 들어가는 파일을 찾아서 상세 정보 출력
+- `find . -type f -exec grep "test" {} \;` : 현재 directory에 있는 파일에서 "test"가 들어가는 내용 찾기 
+- `find . -name "*.txt" -exec rm {} \;` : 현재 directory에 ".txt" 확장자를 찾아서 모두 삭제
+exec를 사용하여 검색한 대상에 추가 명령어를 수행할 수도 있습니다.
+
+---
+
 ### grep
 - `grep [opt] [pattern] [file/directory name]`
   - opt
@@ -157,6 +232,7 @@
 ---
 
 참고
+- https://coding-factory.tistory.com/804
 - https://coding-factory.tistory.com/802
 - https://jhnyang.tistory.com/287
 - https://spadework-blog.tistory.com/94
