@@ -1,9 +1,55 @@
 
 ### grep
 - `grep [opt] [pattern] [file/directory name]`
-- pattern : 정규식 Regular Expression 사용
+  - opt
+    - -c : 일치하는 행의 수 출력
+    - -i : 대소문자를 구별X
+    - -v : 일치하지 않는 행 출력
+    - -n : 행번호 함께 출력
+    - -l : 패턴이 포함된 파일명 출력
+    - -w : 단어와 일치하는 행만 출력
+    - -x : 라인과 일치하는 행만 출력
+    - -r : 하위 디렉토리를 포함한 모든 파일에서 검색
+    - -m 숫자 : 최대로 표시될 수 있는 결과 제한
+    - -F : 패턴을 문자열로 검색
+  - pattern : 정규식 Regular Expression 사용
+  - 파일은 여러 개 지정 가능
+- 파일에서 특정 문자열, 정규표현식을 포함한 행 출력
+- tail이나 ls 등 다양한 명령어와 조합하여 응용
 - grep을 pipe 입력 stream으로 주는 경우 filter처럼 동작
   - file/directory name을 안 써도 입력 stream으로 받은 내용, pattern을 바탕으로 grep 명령어 시행
+
+<b>종류</b>
+- grep : 다중 패턴 검색 (정규표현식 사용)
+- egrep : 정규 표현식 패턴으로 검색 (정규표현식 사용)
+- fgrep : 문자열 패턴으로 검색 (정규표현식 사용X)
+
+<b>문자열 검색</b>
+- `grep 'error' [file name]` : 파일 내 문자열 'error' 찾기
+- `grep 'error' [file name1] [file name2]` : 여러 파일에서 문자열 'error' 찾기
+- `grep 'error' *` : 현재 directory 내에 있는 모든 파일에서 문자열 'error' 찾기
+- `grep 'error' *.log` : 특정 확장자를 가진 모든 파일에서 문자열 'error' 찾기
+
+<b>정규표현식 검색</b>
+- `grep 'a*' [file name]` : 파일에서 a로 시작하는 모든 단어 찾기
+- `grep [a-c] [file name]` : 파일에서 a, b, c로 시작하는 단어 찾기
+- `grep 'a...z' [file name]` : 파일에서 a로 시작하고 z로 끝나는 5자리 단어 찾기
+- `grep [aA]pple [file name]` : 파일에서 apple/Apple 단어 찾기
+- `grep '^[ab]' [file name]` : 파일에서 a나 b로 시작되는 행 찾기
+- `grep 'apple'[0-9] [file name]` : 파일에서 apple로 시작 + 숫자 0~9로 끝나는 모든 행을 찾기
+
+<b>기타</b>
+- 실시간 로그 보기 (tail + grep)
+  - `tail -f mylog.log | grep 192.168.15.86`
+  - 의미 : mylog파일을 실시간으로 액세스하고 IP주소가 192.168.49.16인 행만 추출
+- 특정 파일에서 여러개 문자열 찾기
+  - `|` (파이프) + `grep` 으로 특정 파일에서 여러 개 문자열 찾기 가능
+  - `cat mylog.txt | grep 'Apple' | grep 'Banana'`
+  - 의미 : mylog.txt 파일에서 Apple과 Banana이 있는 문자열 찾기
+- grep 한 결과 값 txt 파일로 저장
+  - grep한 결과가 길면 터미널에서 확인이 어렵기 때문에 txt파일로 저장하여 확인
+  - `grep -n 'Apple' mylog.txt > result.txt`
+  - 의미 : mylog.txt 파일에서 Apple이 있는 문자열들을 result.txt 파일에 저장
 
 ---
   
@@ -111,5 +157,6 @@
 ---
 
 참고
+- https://coding-factory.tistory.com/802
 - https://jhnyang.tistory.com/287
 - https://spadework-blog.tistory.com/94
