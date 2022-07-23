@@ -131,7 +131,7 @@ exec를 사용하여 검색한 대상에 추가 명령어를 수행할 수도 �
 ### sed : streamlined editor
 - `ed` + `grep`
   - 파일을 수정할 수 있지만 `ed`처럼 대화식 처리는 불가능
-- <span style='background-color: #fff5b1'>line 1개 씩 읽고 표준출력 (원본파일 변경X) ★★</span>
+- ![#f03c15]line 1개 씩 읽고 표준출력 (원본파일 변경X) ★★
   - 각 line을 읽을 때마다 ed와 같은 완전한 형식의 대치 연산자 사용
   - 일치하는 문자열이 없으면 그 line은 수정하지 않고 그대로 출력
 - ed보다 좋은점
