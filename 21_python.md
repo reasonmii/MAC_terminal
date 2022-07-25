@@ -4,6 +4,8 @@ sudo pip3 install <package>
 sudo pip3 install <package> --upgrade
 ```
 
+pip install -r
+
 python 실행
 ```vim
 python3
