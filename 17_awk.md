@@ -25,6 +25,7 @@
     - option 보다는 awk program 작성으로 대부분 조작
     - `-f` option : awk program 파일 실행
       - `awk -f [awk file] [file]`
+      - `awk -f awkp.script ./file.txt`
     - `-f` 외 option : awk가 실행할 awk program 코드 직접 지정
       - ' '(single quotation marks) 안에 작성
       - ★ 기본 구조 : `'pattern [action]'`
@@ -46,27 +47,65 @@
   - END : 모든 record 처리 후 END에 지정된 액션 실행
   - `awk 'BEGIN {print "TITLE : Field value 1,2"} {print $1, $2} END {print "Finished"}' file.txt`
 
-<b>명령어 예시</b>
-- 기본 출력
-  - 파일 전체 내용 출력 : `awk '{ print }' [file]`
-  - 필드 값 출력 : `awk '{ print $1 }' [file]`
-  - 필드 값에 임의 문자열 같이 출력	: `awk '{print "STR"$1, "STR"$2}' [file]`
-- 특정 부분 출력
-  - 지정된 문자열을 포함하는 레코드만 출력 : `awk '/STR/' [file]`
-  - 특정 레코드만 출력 : `awk 'NR == 2 { print $0; exit }' [file]`
-  - 필드 중 최대 값 출력 : `awk '{max = 0; for (i=3; i<NF; i++) max = ($i > max) ? $i : max ; print max}' [file]`
-  - 특정 필드 값 비교를 통해 선택된 레코드만 출력 : `awk '$1 == 10 { print $2 }' [file]`
-- 연산
-  - 특정 필드들의 합 구하기 :	`awk '{sum += $3} END { print sum }' [file]`
-  - 여러 필드들의 합 구하기	: `awk '{ for (i=2; i<=NF; i++) total += $i }; END { print "TOTAL : "total }' [file]`
-  - 레코드 단위로 필드 합 및 평균 값 구하기 :	`awk '{ sum = 0 } {sum += ($3+$4+$5) } { print $0, sum, sum/3 }' [file]`
-  - 필드에 연산을 수행한 결과 출력 :	`awk '{print $1, $2, $3+2, $4, $5}' [file]`
-- 기타
-  - 필드 구분 문자 변경 : `awk -F ':' '{ print $1 }' [file]`
-  - awk 실행 결과 레코드 정렬 : `awk '{ print $0 }' [file]`
-  - 레코드/필드 문자열 길이 검사 : `awk ' length($0) > 20' [file]`
-  - 출력 필드 너비 지정 : `awk '{ printf "%-3s %-8s %-4s %-4s %-4s\n", $1, $2, $3, $4, $5}' [file]`
+<b>awk program language</b>
+- awk program이 프로그래밍 언어로 작성되는 만큼 다양한 요소들을 사용하여 프로그래밍
+- awk 표현식 : C 프로그래밍 언어 표현식과 유사
+```
+ (E),    $n,     ++E,    --E,    E++,    E--,    E^E,    !E,     +E,
+    -E,     E*E,    E/E,    E%E,    E+E,    E-E,    E E,    E<E,    E<=E,
+    E!=E,   E==E,   E>E,    E>=E,   E~E,    E!-E,   E in array,     (n) in array, 
+    E&&E,   E||E,   E1?E2:E3        V^=E,   V%=E,   V*=E,   V/=E,   V+=E,
+    V-=E,   V=E
+```
 
+
+<b>기본 출력</b>
+- `awk '{print}' [file]` : 파일 전체 내용 출력
+- `print $n` : n번째 field 값 출력
+  - `awk '{print $0}' [file]` : record 출력
+  - `awk '{print $1}' [file]` : 1번째 field 값 출력
+  - `awk '{ print $1,$2 }' [file]` : 1, 2번째 field 값 출력
+- `awk '{print "STR"$1, "STR"$2}' [file]` : 필드 값에 임의 문자열 같이 출력
+
+<b>부분 출력</b>
+- `awk '/STR/' [file]` : 지정된 문자열을 포함하는 레코드만 출력
+  - `/regex/` : 정규 표현식 (Regular Expression) 사용하여 pattern 검색 가능
+  - `awk '/pp/' [file]` : 'pp'가 포함된 레코드
+  - `awk '/[2-3]0/' [file]` : 20, 30 이 포함된 레코드
+- 특정 레코드만 출력
+  - `exit` 키워드 사용하여, 조건에 따라 awk 실행 중지
+  - `awk '{ print $0; exit }' [file]` : 1번째 레코드만 출력하고 실행 중지
+  - `awk 'NR == 2 { print $0; exit }' [file]` : 2번째 레코드만 출력하고 실행 중지
+- 필드 중 최대 값 출력
+  - `awk '{max = 0; for (i=3; i<NF; i++) max = ($i > max) ? $i : max ; print max}' [file]`
+- 특정 필드 값 비교를 통해 선택된 레코드만 출력
+  - awk program language의 표현식 사용
+  - `awk '$1 == 2 { print $2 }' [file]` : 1번째 field가 2인 레코드의 1번째 필드 출력
+  - `awk '$3 > 70 { print $0 }' [file]` : 3번째 field가 70보다 큰 레코드 출력
+  - `awk '$3 == 30 && $4 == 40 { print $2 }' [file]` : 3번째 field가 30이고 네 번째 필드가 40인 레코드의 두 번째 필드 출력
+
+<b>연산</b>
+- 특정 필드들의 합 구하기 : `awk '{sum += $3} END { print sum }' [file]`
+- 여러 필드들의 합 구하기	: `awk '{ for (i=2; i<=NF; i++) total += $i }; END { print "TOTAL : "total }' [file]`
+- 레코드 단위로 필드 합 및 평균 값 구하기 :	`awk '{ sum = 0 } {sum += ($3+$4+$5) } { print $0, sum, sum/3 }' [file]`
+- 필드에 연산을 수행한 결과 출력
+  - `awk '{print $1, $2, $3+2, $4, $5}' [file]` : 3번째 필드에 2를 더한 값 출력
+
+<b>기타</b>
+- 필드 구분 문자 변경
+  - `awk -F ':' '{ print $1 }' [file]`
+  - `awk -F ',' '{ print $1 }' [file]`
+- awk 실행 결과 레코드 정렬
+  - `awk '{ print $0 }' [file]`
+  - awk + sort
+    - `awk '{ print $0 }' file.txt | sort` : 출력 레코드를 오름차순 정렬
+    - `awk '{ print $0 }' file.txt | sort -r` : 출력 레코드를 내림차순 정렬
+- 레코드/필드 문자열 길이 검사
+  - `awk ' length($0) > 20' [file]` : 레코드 길이가 20보다 큰 경우
+  - `awk ' length($2) > 4 { print $0 } ' [file]` : 두 번째 field 길이가 4보다 큰 레코드
+- 출력 필드 너비 지정
+  - `printf` 함수를 사용하여 필드 값 출력 format 지정 (C언어와 동일)
+  - `awk '{ printf "%-3s %-8s %-4s %-4s %-4s\n", $1, $2, $3, $4, $5}' [file]`
 
 ---
 
