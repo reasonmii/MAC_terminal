@@ -3,11 +3,11 @@
 - awk 기능 디자이너들의 이니셜 조합 : 'A'ho + 'W'einberger + 'K'ernighan
 - 'awk programming language'로 작성된 프로그램 실행
   - Linux에서 Shell Script로 작성된 파일을 Linux Shell로 실행하는 것과 같음
-- 파일을 record(line), field 단위로 파일 식별
+- 파일을 record(line), field 단위로 식별
   - field : text를 공백 문자로 구분
   - ★ record 구분 문자(newline), field 구분 문자(space, tab) → awk 프로그램 option으로 변경 가능
 - 주어진 패턴과 일치하는 record를 찾아 지정된 action 실행
-- 주 사용
+- 주 사용 목적
   - 텍스트 파일 전체 내용 출력
   - 패턴이 포함된 레코드 출력
   - 필드 값 비교에 따라 레코드 출력
@@ -36,7 +36,9 @@
   - 예시 : record 길이가 10 이상인 경우, 3~5번째 field 출력
     - `awk 'length($0) > 10 {print $3, $4, $5} ' ./file.txt`
 
-<b>awk program</b>
+---
+
+### awk program
 - 다양한 표현식, 변수, 함수 등 사용
 - `pattern` 생략 시 모든 record 선택 (default)
   - `awk '{ print }' ./file.txt` : file.txt의 모든 record 출력
@@ -57,32 +59,37 @@
     E&&E,   E||E,   E1?E2:E3        V^=E,   V%=E,   V*=E,   V/=E,   V+=E,
     V-=E,   V=E
 ```
-- awk program keyword
+
+<b>awk program keyword</b>
 ```
     BEGIN   delete  END     function    in      printf
     break   do      exit    getline     next    return
     continue        else    for         if      print      while
 ```
-- 특수 목적으로 미리 정의된 변수
-  - ARGC        : ARGV 배열 요소 개수
-  - ARGV        : command line argument에 대한 배열
-  - CONVFMT     : 문자열을 숫자로 변경할 때 사용할 형식 ex) `%.6g`
-  - ENVIRON     : 환경변수에 대한 배열
-  - FILENAME    : 경로를 포함한 입력 파일 이름
-  - FNR         : 현재 파일에서 현재 레코드의 순서 값
-  - FS          : 필드 구분 문자 (default : space)
-  - NF          : 현재 레코드 내 필드 개수
-  - NR          : 입력 시작 점에서 현재 레코드의 순서 값
-  - OFMT        : 문자열을 출력할 때 사용할 형식
-  - OFS         : 결과 출력 시 필드 구분 문자 (default : space)
-  - ORS         : 결과 출력 시 레코드 구분 문자 (default : newline)
-  - RLENGTH     : match 함수에 의해 매칭된 문자열 길이
-  - RS          : 레코드 구분 문자 (default : newline)
-  - RSTART      : match 함수에 의해 매칭된 문자열의 시작 위치
-- 함수
-  - Arithmetic Functions : `atan2(y,x), cos(x), sin(x), exp(x), log(x), sqrt(x), int(x), rand(), srand([expr])`
-  - String Functions : `gsub(ere, repl[, in]), index(s, t), length[([s])], match(s, ere), split(s, a[, fs ]), sprintf(fmt, expr, expr, ...), sub(ere, repl[, in ]), substr(s, m[, n ]), tolower(s), toupper(s)`
-  - Input/Output and General Functions : `close(expression), getline, getline var, system(expression)`
+
+<b>특수 목적으로 미리 정의된 변수</b>
+- ARGC        : ARGV 배열 요소 개수
+- ARGV        : command line argument에 대한 배열
+- CONVFMT     : 문자열을 숫자로 변경할 때 사용할 형식 ex) `%.6g`
+- ENVIRON     : 환경변수에 대한 배열
+- FILENAME    : 경로를 포함한 입력 파일 이름
+- FNR         : 현재 파일에서 현재 레코드의 순서 값
+- FS          : 필드 구분 문자 (default : space)
+- NF          : 현재 레코드 내 필드 개수
+- NR          : 입력 시작 점에서 현재 레코드의 순서 값
+- OFMT        : 문자열을 출력할 때 사용할 형식
+- OFS         : 결과 출력 시 필드 구분 문자 (default : space)
+- ORS         : 결과 출력 시 레코드 구분 문자 (default : newline)
+- RLENGTH     : match 함수에 의해 매칭된 문자열 길이
+- RS          : 레코드 구분 문자 (default : newline)
+- RSTART      : match 함수에 의해 매칭된 문자열의 시작 위치
+
+<b>함수</b>
+- Arithmetic Functions : `atan2(y,x), cos(x), sin(x), exp(x), log(x), sqrt(x), int(x), rand(), srand([expr])`
+- String Functions : `gsub(ere, repl[, in]), index(s, t), length[([s])], match(s, ere), split(s, a[, fs ]), sprintf(fmt, expr, expr, ...), sub(ere, repl[, in ]), substr(s, m[, n ]), tolower(s), toupper(s)`
+- Input/Output and General Functions : `close(expression), getline, getline var, system(expression)`
+
+---
 
 <b>기본 출력</b>
 - `awk '{print}' [file]` : 파일 전체 내용 출력
