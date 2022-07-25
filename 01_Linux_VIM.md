@@ -20,6 +20,7 @@
 - `pwd` : present working directory
 - `pwdx [opt] [PID]` : report current working directory of a process
   - `pwdx [PID]`, `pwdx [PID1] [PID2]`
+  - 로그 찾기 위해 사용
   - option
     - `-V` : version
     - `-h` : help
