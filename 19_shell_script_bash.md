@@ -1,5 +1,5 @@
 
-`#!/bin/bash` = `#!/bin/sh`
+- 시직 부분 : `#!/bin/bash` or `#!/bin/sh`
 - 보통 script 맨 위에 작성되어 있음
 - 의미
   - `#!` : script를 실행할 shell 지정
