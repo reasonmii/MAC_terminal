@@ -1,4 +1,17 @@
 ### pycharm
+- 서버에서 testing/구현 전 local에서 testing 해 볼 것
+- 방법
+  - 우측 상단 run, debug 등 버튼 옆 뭐 설정하는 빈칸 클릭
+  - 'run and edit config' 설치
+  - local 장비에서 epoch랑 dataset 작게 해서 한 번 돌려보기
+    - 서버에서는 이렇게 작은 testing도 오래 걸림
+  - 잘 돌아가면 서버에서 gpu로 들리기
+
+### nvidia-smi
+- GPU 확인
+- 가끔 GPU를 먹고 있는데 % 안 올라가는 경우 있음
+  - GPU를 잡기만 하고 사실 안 쓰고 있는 것
+  - version이 달라 에러가 발생하는 것 : cuda version과 tensorflow version을 맞춰야 함
 
 ### makefile
 - `TF_FORCE_GPU_ALLOW_GROWTH` : 이거 설정 안 하면 tensorflow가 GPU를 다 가져가기 때문에 이를 막고 필요한 정도만 가져가도록 설정
