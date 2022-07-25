@@ -27,6 +27,8 @@
 - `ls` : check files in the directory
 - `open .` : 현재 경로 폴더 열기
 - `tab` : 폴더/파일명 자동 완성
+- `/opt` : (optional) Add-on software package
+  - 기본적으로 설치되어 있지 않은 외부 패키지 다운로드
 
 <b>파일·폴더 생성</b>
 - `mkdir <folderPath>` : directory 생성
