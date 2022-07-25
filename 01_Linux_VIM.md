@@ -17,7 +17,12 @@
 
 ### VIM code
 - [vim Cheat Sheet](https://vim.rtorr.com/)
-- `pwd` : print working directory
+- `pwd` : present working directory
+- `pwdx [opt] [PID]` : report current working directory of a process
+  - `pwdx [PID]`, `pwdx [PID1] [PID2]`
+  - option
+    - `-V` : version
+    - `-h` : help
 - `ls` : check files in the directory
 - `open .` : 현재 경로 폴더 열기
 - `tab` : 폴더/파일명 자동 완성
