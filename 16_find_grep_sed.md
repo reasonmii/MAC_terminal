@@ -139,29 +139,73 @@ exec를 사용하여 검색한 대상에 추가 명령어를 수행할 수도 �
   - line을 한 개씩 읽고 수정/출력하니, 기억장치 안의 buffer 사용X → 파일 크기 제한X
     - ed : buffer 사용 → buffer보다 큰 파일 처리 불가능
     - 보통 buffer 크기는 1MB 정도
-- ※ `/^$/` : 라인의 시작, 끝 사이 아무것도 없는 공백 라인 - space도 안됨 (문자이기 때문)
+- 문자 의미
+  - `^` : 시작
+  - `$` : 끝
+  - `/^$/` : 라인의 시작, 끝 사이 아무것도 없는 공백 라인
+    - space도 안됨 (문자이기 때문)
+  - `*` : 0개 이상 문자
+
+<b>subcommand 명령어 종류와 의미</b>
+- `r` : 파일에서 행 읽어오기
+- `a\` : 현재 행에 하나 이상 새로운 행 추가
+- `i\` : 현재 행의 위에 text 삽입
+- `s` : 문자열 치환
+- `c\` : 현재 행의 내용을 새로운 내용으로 변경
+- `!` : 선택 행 외 나머지 전체 행에 명령어 적용
+- `p` : 행 출력
+- `l` : 출력되지 않은 특수문자 명확히 출력
+- `d` : `/` 사이 단어를 포함한 라인 모두 삭제
+- `h` : 패턴 스페이스 내용을 홀드 스페이스에 복사
+- `H` : 패턴 스페이스 내용을 홀드 스페이스에 추가
+- `g`, `G` : 홀드 스페이스 내용을 패턴 스페이스에 복사
+  - `g` : 패턴 스페이스가 비어있지 않은 경우 덮어쓰기
+  - `G` : 패턴 스페이스가 비어있지 않은 경우 이어쓰기
+- `n` : 다음 입력 행을 첫 번째 명령어가 아닌 다음 명령어에서 처리
+- `q` : sed 종료
+
+<b>sed `s`와 같이 쓰는 치환 flag</b>
+- `g` : 라인 전체에 대해 치환
+- `i` : 변경 대상 단어를 찾을 때 대소문자 무시
+- `p` : 라인 출력
+- `w` : 파일 쓰기
+- `x` : 홀드 버퍼와 패턴 스페이스의 내용 서로 맞바꾸기
+- `y` : 한 문자를 다른 문자로 변환
+  - `y`에 정규표현식 메타문자 사용 불가
+
+<b>읽기, 쓰기</b>
+- `sed '/ref/r [file2]' [file]` : 'file'에서 'ref'라는 단어를 찾으면 그 라인 뒤에 'file2' 내용 붙이기
+- `sed -n '/north/w [file2]' [file]` : 'file'에서 'north'라는 패턴이 포함된 라인들을 'file2'에 저장
 
 <b>일부 출력</b>
 - `sed -n '1p' [file]` : 첫 라인 출력
-  - `p` : print
 - `sed -n '1,3p' [file]` : 1~3 라인 출력
 - `sed -n '8,$p' [file]` : 8~끝 라인 출력
-- `sed -n '/hello/p' [file]` : hello가 있는 라인만 프린트
-- `sed '/hello/p' [file]` : hello가 있는 라인은 두 번씩 프린트
+- `sed -n -e '1p' -e '8,$p' [file]` : 1라인 + 8~끝 라인 출력
+- `sed -n '/hello/p' [file]` : hello가 있는 라인만 출력
+- `sed -n '/west/,/east/p' [file]` : west가 나오는 라인과 east가 나오는 라인 사이 모든 라인 출력
+  - west가 east 다음에 나오는 경우 : 파일의 마지막까지 출력
+- `sed -n '3,/^hello/p' [file]` : 3번째 행부터 'hello'로 시작하는 라인까지 출력
+- `sed -n '/^107/p' [file]` : 107로 시작하는 라인만 출력
+- `sed '/hello/p' [file]` : hello가 있는 라인은 두 번씩 출력
 - `sed '2q' [file]` : 2라인만 보여주고 중지
   - `q` : 명시된 라인에 도착 후 중지
 
 <b>변경</b>
-- `sed 's/addrass/address/' [file]` : 파일에서 각 라인 첫 번째 등장하는 addrass를 address로 변경
-- `sed 's/\t/\/' [file]` : tab 문자를 enter로 변경
+- `sed 's/hi/hello/' [file]` : 파일에서 각 라인 첫 번째 등장하는 hi를 hello로 변경
+  - `sed 's/hi/hello/' [file] > [file2]` : 결과를 file2에 저장
+- `sed 's/hi/hello/g' [file]` : 파일에서 hi를 찾아 모두 hello로 변경
+- `sed 's/hi/hello/gi' : 대소문자 구분하지 않고 모든 hi를 hello로 변경
+- `sed -n '5s/hi/hello/gp' [file]` : 5번째 라인 hi를 hello로 변경- `sed 's/\t/\/' [file]` : tab 문자를 enter로 변경
+- `sed -i 's/ */ /g' [file]` : 공백이 여러 개 나왔을 때 하나의 공백으로 변경
 - `sed 'c\\Oh! My God!!!' [file]` : 모든 라인을 'Oh! My God!!!' 문자로 대체
-- `sed 's/hello/#####/g' [file]` : 특정 문자 전체 치환
-- `sed -n '5s/hello/#####/gp' [file]` : 특정 라인 문자 치환
+- `sed 's/[0-9][0-9]$/&.5/' [file]` : 두 자리 숫자로 끝나는 행을 찾으면 뒤에 '.5' 붙이기 ex) 23 → 23.5
 
 <b>삽입</b>
 - `sed 's/^/     /' data | cat -n` : 각 라인의 시작을 5 space로 대체
 - `sed 'a\\Hello World\!' [file]` : 각 라인마다 뒤에 Hello World! 라인 삽입
 - `sed '3a\\Good Morning' [file]` : 3번째 라인 뒤 Good Morning 라인 삽입
+- `sed '/END$/a\thanks' [file]` : END로 끝나는 행 찾아 'thanks' 추가
 - `sed 'a\\' [file]` : 각 라인마다 공백라인 추가
 
 <b>삭제</b>
@@ -177,11 +221,15 @@ exec를 사용하여 검색한 대상에 추가 명령어를 수행할 수도 �
     - = `grep -v hello [file]`
   - `sed '1.2d' [file]` : 1~2 라인 삭제
   - `sed '3d' [file]` : 3 라인 삭제
+  - `sed '5,$d' [file]` : 5 라인 ~ 마지막 라인까지 삭제
+  - `sed '$d' [file]` : 마지막 라인 삭제
   - `sed '/^$/d [file]` : 공백 라인 삭제 ★
 - 모든 공백 라인 제거
-  - `sed '/^$/d' [file]`
-  - `sed '/^ *$/d' : space 공백까지 제거
+  - `sed '/^$/d' [file]` : 공백 라인 제거, 출력
+    - `sed '/^$/d' [file] > [file2]` : 공백 라인 제거 후 file2에 결과 저장
+  - `sed '/^ *$/d' [file]` : space로 채워진 공백 라인까지 모두 제거
 - 범위 삭제
+  - `sed '/apple/d' [file]` : 'apple'을 포함한 모든 라인 삭제
   - `sed '1,/hello/d' [file]` : 라인 1 ~ hello를 포함한 첫 번째 라인까지 모든 라인 삭제
   - `who | sed 's/ .*$//'` : 각 라인 첫 번째 공백 ~ 마지막까지 삭제
   - `who | sed 's/^.*//'` : 각 라인 처음부터 마지막 공백까지 삭제
