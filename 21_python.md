@@ -3,12 +3,11 @@
 - terminal package 설치
   - `sudo pip3 install <package>`
   - `sudo pip3 install <package> --upgrade`
-- requirement 설치
-  - `!pip install -r "requirements.txt"`
-  - `-r` : Install from the given requirements fil
+- requirement 설치 : `!pip install -r "requirements.txt"`
+  - `-r` : install from the given requirements fil
 - python 실행 : `python3`
 - python 파일 생성 : `vi fileNmae.py`
-- script 입력 + 저장 + 종료
+- script 입력 `i` + 저장, 종료 `:wq`
 - 파일 확인 : `ls`
 - 파일 내용 확인 : `python3 fileName.py`
 
