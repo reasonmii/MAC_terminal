@@ -71,7 +71,7 @@ CMD [ "node", "server.js" ]
 - 인터넷 주소창 `localhost:[local port]` 입력하면 결과 보임 
   - ex) localhost:3000
 
-<b>코드 변경이 있는 경우<b>
+<b>코드 변경이 있는 경우</b>
 - image는 한 번 build 되면 lock 됨 (읽기 전용)
 - 'Dockerfile'에서 `COPY`로 기존 코드를 snapshot처럼 가지고 있기 때문
 - 코드가 변경되면 docker를 **rebuild** 필요
