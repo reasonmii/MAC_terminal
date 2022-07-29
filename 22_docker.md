@@ -22,6 +22,13 @@
   - `[ctrl] + C 두 번` : 실행 중인 작업 
   - `clear` : terminal 창 깨끗하게
 
+<b>code list</b>
+- `docker --help`
+- `docker ps` : 실행 중인 모든 container
+- `docker ps -a` : all containers from past
+- `docker run [id]`
+- `docker start [name]`
+
 <b>Dockerfile</b>
 
 ```
@@ -108,4 +115,23 @@ EXPOSE 80
 
 CMD [ "node", "server.js" ]
 ```
+
+<b>attach/detach - run vs start</b>
+- `docker run [id]` : create a new container based on an image
+  - default : attach mode
+    - terminal 코드 입력 불가능
+    - The container is running in the **foreground**
+    - 인터넷 주소창 들어가서 화면에서 뭔가 입력하면 terminal에도 log message 동시 입력됨
+  - detach mode : `docker run -p 8000:80 -d [id]`
+    - 자동으로 생성된 container id 출력됨
+- `docker start [name]` : 변경사항 없이 다시 실행하고 싶을 때
+  - default : detach mode
+    - terminal 코드 입력 가능
+    - The container is running in the **background**
+  - attach mode : `docker start -a [name]`
+- `docker attach [name]` : detach 된 걸 다시 attach 하기
+  - `docker ps` : name 확인
+- `docker logs [name]` : detach/종료 상태에서도 log message 가져오기
+  - `docker logs -f [name]`
+  - `docker logs --help`
 
