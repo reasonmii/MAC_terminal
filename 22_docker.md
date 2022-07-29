@@ -52,10 +52,11 @@ CMD [ "node", "server.js" ]
     - 즉, 컨테이너가 실행된 후 노드 서버를 실행하고자 하는 것
 
 <b>Terminal code</b>
-- `build docker .`
+- `docker build .`
   - `build` : create a new custom image
   - `.` : Dockerfile과 같은 경로
   - 결과로 image id 나옴 (`sha256:` 뒷 부분)
+    - id가 너무 길면 다른 id들과 중복되지 않는 앞 일부분만 넣어도 인식됨
 - `docker run [image id]` : 컨테이너 실행 중
   - 그러나 인터넷 주소창에 `localhost:3000` 입력하면 결과 안 보임
   - New Terminal 열고 `docker ps` 입력해 보기 : 현재 실행 중인 프로세스 표시
