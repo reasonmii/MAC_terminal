@@ -71,3 +71,37 @@ CMD [ "node", "server.js" ]
 - 인터넷 주소창 `localhost:[local port]` 입력하면 결과 보임 
   - ex) localhost:3000
 
+<b>코드 변경이 있는 경우<b>
+- image는 한 번 build 되면 lock 됨 (읽기 전용)
+- 'Dockerfile'에서 `COPY`로 기존 코드를 snapshot처럼 가지고 있기 때문
+- 코드가 변경되면 docker를 **rebuild** 필요
+  - `docker build .`
+- 이전에 build 했던 것과 코드 중복이 많은 걸 알고 docker가 이전보다 빨리 build 함
+  - 과정에 보면 'Using cache' 라고 써 있음
+
+<b>layer based architecture</b>
+- Dockerfile 내 모든 명령은 한 줄 한 줄 Layer라고 불림
+- 이미지는 이렇게 Layer들로 구성됨
+- layer 한 개가 변경될 때마다 모든 subsequent layer들도 재실행
+  - ex) 파일 중 일부가 변경됨 = `COPY` 부분 재실행 필요 -> 그 아래 layer들 전부 재실행
+- 문제점 : 'server.js' 파일 일부가 변경되었다고 매번 `RUN npm install`을 재실행할 필요 없음
+- 해결방법 : 아래와 같이 코드 변경
+  - `COPY . /app` 코드가 제일 아래에 있으니 앞으로는 source code가 변경되어도 불필요하게 다른 부분까지 재실행하지 않음
+  - npm install을 하지 않으니 build 시간 훨씬 
+
+```
+FROM node
+
+WORKDIR /app
+
+COPY package.json /app
+
+RUN npm install
+
+COPY . /app
+
+EXPOSE 80
+
+CMD [ "node", "server.js" ]
+```
+
