@@ -24,10 +24,22 @@
 
 <b>code list</b>
 - `docker --help`
-- `docker ps` : 실행 중인 모든 container
-- `docker ps -a` : all containers from past
-- `docker run [id]`
-- `docker start [name]`
+- 보기
+  - `docker ps` : 실행 중인 모든 container
+  - `docker ps -a` : all containers from past
+  - `docker images` : 모든 images (repo, tag, id, created time, size)
+- 실행
+  - `docker run [id]`
+  - `docker start [name]`
+- 중단
+  - `docker stop [name]`
+- 삭제
+  - `docker rm [name1] [name2] ...` : container 삭제
+    - `docker ps -a` 하면 너무 많아서 지저분하니까 정리하기 위함
+    - running container인 경우 먼저 stop 필요
+  - `docker rmi [image id]`
+    - `docker images`로 id 확인
+    - 이미지 내부 
 
 <b>Dockerfile</b>
 
