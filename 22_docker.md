@@ -140,7 +140,7 @@ CMD [ "node", "server.js" ]
 ### python
 
 <b>python 파일 생성</b>
-- 사용자 입력 필요
+- **사용자 입력**이 필요한 파일로 생성
 ```
 from random import randint
 
