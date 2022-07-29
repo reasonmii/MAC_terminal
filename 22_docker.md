@@ -10,12 +10,13 @@
     - download latest node image automatically
     - run with container
   - `docker run -it node` : interactive node terminal
-  - 종료 : `[ctrl] + C 두 번`
 
 <b>VS code</b>
 - 상단 view - extensions - Docker 검색 - install
 - 작업 폴더에 'Dockerfile' 생성
 - Terminal - New Terminal
+  - `[ctrl] + C 두 번` : 실행 중인 작업 
+  - `clear` : terminal 창 깨끗하게
 
 <b>Dockerfile</b>
 
@@ -51,10 +52,21 @@ CMD [ "node", "server.js" ]
     - 즉, 컨테이너가 실행된 후 노드 서버를 실행하고자 하는 것
 
 <b>Terminal code</b>
-- `docker run -p 3000:3000 [id]` : 실행
-- 인터넷 주소창 `localhost:3000` 입력하면 결과 보임 
-- `docker ps` : 실행 중인 docker 확인
-  - `docker ps -a` : show all
-- `docker stop [name]` : docker 실행 중지
-- 
+- `build docker .`
+  - `build` : create a new custom image
+  - `.` : Dockerfile과 같은 경로
+  - 결과로 image id 나옴 (`sha256:` 뒷 부분)
+- `docker run [image id]` : 컨테이너 실행 중
+  - 그러나 인터넷 주소창에 `localhost:3000` 입력하면 결과 안 보임
+  - New Terminal 열고 `docker ps` 입력해 보기 : 현재 실행 중인 프로세스 표시
+    - 방금 실행한 컨테이너 계속 실행 중인 것 볼 수 있음 (STATUS 부분 : UP ~)
+  - `docker stop [name]` : 실행 중지 (shutdown)
+  - `docker ps` : 결과 없음
+  - `docker ps -a` : 실행 끝난 컨테이너들 보여줌
+- `docker run -p [local port]:[internal docker container expose port] [image id]` : 실행
+  - `-p` : publish
+  - `[local port]` : 인터넷 주소창에서 localhost 몇으로 하고 싶은지
+  - `[internal docker container expose port]` : Dockerfile EXPOSE 부분에 쓴 PORT 번호
+- 인터넷 주소창 `localhost:[local port]` 입력하면 결과 보임 
+  - ex) localhost:3000
 
