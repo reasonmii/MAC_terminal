@@ -1,4 +1,6 @@
-Dockerfile 생성
+<b>VS code</b>
+- 'Dockerfile' 생성
+- Terminal - New Terminal
 
 <b>code</b>
 - `docker run -p 3000:3000 [id]` : 실행
