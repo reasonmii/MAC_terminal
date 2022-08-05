@@ -35,6 +35,8 @@
 - `/opt` : (optional) Add-on software package
   - 기본적으로 설치되어 있지 않은 외부 패키지 다운로드
 - `du` : disk 얼마나 쓰고 있는지
+- `ctrl + a` : 맨 앞으로
+- `ctrl + e` : 맨 뒤로
 
 <b>파일·폴더 생성</b>
 - `mkdir <folderPath>` : directory 생성
