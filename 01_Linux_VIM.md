@@ -29,13 +29,13 @@
 - 환경변수
   - `printenv` : 현재 지정된 환경변수 출력
   - `echo $PATH` : 환경변수 경로 출력
-  - `export PATH=/[경로]` : 환경변수 새로 등록 (overwrite)
+  - ★ `export PATH=/[경로]` : 환경변수 새로 등록 (overwrite)
   - `export PATH=$PATH:/[경로]` : 환경변수 추가 등록
 - `tab` : 폴더/파일명 자동 완성
 - `/opt` : (optional) Add-on software package
   - 기본적으로 설치되어 있지 않은 외부 패키지 다운로드
 - `du` : disk 얼마나 쓰고 있는지
-- `ctrl + c` : 종료/취소
+- ★ `ctrl + c` : 종료/취소
 - `ctrl + a` : 맨 앞으로
 - `ctrl + e` : 맨 뒤로
 
