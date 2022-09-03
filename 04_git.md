@@ -12,7 +12,7 @@
 
 <b>github repo 연동</b>
 - github에서 특정 repository 주소 복사 `~.git`
-- 터미널 : `git clone ~.git`
+- ★ 터미널 : `git clone ~.git`
 
 <b>local repository와 online repository가 연결되어 있는지 확인</b>
 - `git remote -v`
