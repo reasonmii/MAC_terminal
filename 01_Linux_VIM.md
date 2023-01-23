@@ -38,6 +38,8 @@
 - ★ `ctrl + c` : 종료/취소
 - `ctrl + a` : 맨 앞으로
 - `ctrl + e` : 맨 뒤로
+- `ctrl + u` : 현재 입력 중인 라인 전체 삭제
+- `ctrl + w` : 현재 입력 중인 단어 삭제
 
 <b>파일·폴더 생성</b>
 - `mkdir <folderPath>` : directory 생성
