@@ -1,0 +1,2 @@
+- cmd + tab : other window
+- ctrl + shift + T : open with other tab
