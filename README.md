@@ -24,3 +24,5 @@
 - 최근에는 하이브리드 IT 인프라 등장
   - 보안성 높은 데이터는 on-premise를, 보안성 낮은 데이터는 클라우드 환경을 사용
 
+<b>How to prevent Mac sleep from command line?</b>
+- terminal : `pmset noidle`
