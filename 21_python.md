@@ -3,6 +3,8 @@
 - terminal package 설치
   - `sudo pip3 install <package>`
   - `sudo pip3 install <package> --upgrade`
+  - `pip3 install -q <package>`
+    - `-q` : quiet (don't show the progress)
 - requirement 설치 : `!pip install -r "requirements.txt"`
   - `-r` : install from the given requirements fil
 - python 실행 : `python3`
